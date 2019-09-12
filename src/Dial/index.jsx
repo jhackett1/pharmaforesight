@@ -13,6 +13,22 @@ const Container = styled.div`
 `
 
 const Outer = styled.div`
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    flex: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 20px;
+    border: 3px solid ${theme.panelBackground};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+`
+
+const ThinkingOuter = styled(Outer)`
     @keyframes pulsate{
         from{
             opacity: 1
@@ -24,21 +40,33 @@ const Outer = styled.div`
             opacity: 1;
         }
     }
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    flex: 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 20px;
-    border: 3px solid ${props => props.thinking ? theme.brightBlue : theme.panelBackground};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    ${props => props.thinking ? `box-shadow: 0px 0px 60px ${theme.blueGlow}` : null};
-    animation: pulsate 2s ease-in-out infinite;
-    transition: 1s;
+    @keyframes grow{
+        from{
+            transform: scale(1);
+            opacity: 1;
+        }
+        to{
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    border: 3px solid ${theme.brightBlue};
+    box-shadow: 0px 0px 60px ${theme.blueGlow};
+    animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    &:after{
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        flex: 1;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border: 1px solid ${theme.placeholder};
+        animation: grow 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1s;
+    }
 `
 
 const Message = styled.p`
@@ -54,9 +82,9 @@ const Dial = ({
 }) => {
     if(condition === "thinking") return(
         <Container>
-            <Outer thinking>
+            <ThinkingOuter>
                 <Message>Thinking...</Message>
-            </Outer>
+            </ThinkingOuter>
         </Container>
     )
     return(
