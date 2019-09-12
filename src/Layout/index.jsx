@@ -2,6 +2,7 @@ import React from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import { createGlobalStyle } from "styled-components"
+import theme from "../_theme"
 
 const Style = createGlobalStyle`
     *{
@@ -9,6 +10,9 @@ const Style = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Karla', sans-serif;
+    }
+    body{
+        background: ${theme.pageBackground}
     }
 `
 
