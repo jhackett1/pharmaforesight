@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "./Layout"
 import styled from "styled-components"
 import Dial from "./Dial"
@@ -14,12 +14,18 @@ const Columns = styled.div`
   }
 `
 
-const App = () =>
-  <Layout>
-    <Columns>
-      <h1>App</h1>
-      <Dial/>
-    </Columns>
-  </Layout>
+const App = () => {
+  const [condition, setCondition] = useState("thinking")
+
+  return(
+    <Layout>
+      <Columns>
+        <h1>App</h1>
+        <Dial condition={condition}/>
+      </Columns>
+    </Layout>
+  )
+}
+
 
 export default App
