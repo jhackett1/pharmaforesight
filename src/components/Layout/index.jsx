@@ -13,7 +13,7 @@ const Style = createGlobalStyle`
         font-family: 'Karla', sans-serif;
     }
     body{
-        background: ${theme.pageBackground}
+        background: ${theme.background}
     }
 `
 

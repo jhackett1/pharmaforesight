@@ -21,7 +21,7 @@ const Outer = styled.div`
     top: 0px;
     left: 0px;
     padding: 20px;
-    border: 3px solid ${theme.panelBackground};
+    border: 3px solid ${theme.background};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,8 +50,8 @@ const ThinkingOuter = styled(Outer)`
             opacity: 0;
         }
     }
-    border: 3px solid ${theme.brightBlue};
-    box-shadow: 0px 0px 60px ${theme.blueGlow};
+    border: 3px solid ${theme.brightGreen};
+    /* box-shadow: 0px 0px 60px ${theme.brightBlue}; */
     animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     &:after{
         content: "";
@@ -63,7 +63,7 @@ const ThinkingOuter = styled(Outer)`
         position: absolute;
         top: 0px;
         left: 0px;
-        border: 1px solid ${theme.placeholder};
+        border: 1px solid ${theme.purple2};
         animation: grow 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
         animation-delay: 1s;
     }

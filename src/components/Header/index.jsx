@@ -12,18 +12,7 @@ const Outer = styled.header`
     align-items: center;
     padding: 35px 25px 85px 25px;
     position: relative;
-    &:before{
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #124456, #612776);
-        mix-blend-mode: color;
-        z-index: -1;
-    }
+    background: ${theme.dark};
     @media screen and (min-width: 850px){
         padding: 55px 25px 105px 25px;
     }

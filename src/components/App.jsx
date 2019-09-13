@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Layout from "./Layout"
 import styled from "styled-components"
 import Dial from "./Dial"
+import Panel from "./Panel"
 
 const Columns = styled.div`
   max-width: 1100px;
@@ -20,7 +21,11 @@ const App = () => {
   return(
     <Layout>
       <Columns>
-        <h1>App</h1>
+        <div>
+          <Panel>
+            Content
+          </Panel>
+        </div>
         <Dial condition={condition}/>
       </Columns>
     </Layout>
