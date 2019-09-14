@@ -4,9 +4,14 @@ import theme from "../_theme"
 
 const Outer = styled.section`
     background: ${theme.white};
-    padding: 25px;
     border-radius: 5px;
     color: ${theme.dark};
+    margin-bottom: 25px;
+    overflow: hidden;
+`
+
+export const InnerPanel = styled.div`
+    padding: 25px;
 `
 
 const Panel = ({
@@ -17,3 +22,4 @@ const Panel = ({
     </Outer>
 
 export default Panel
+

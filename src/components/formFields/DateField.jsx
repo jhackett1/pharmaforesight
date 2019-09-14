@@ -1,4 +1,6 @@
 import React from "react"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 import styled from "styled-components"
 import theme from "../_theme"
 import Label from "./Label"
@@ -7,7 +9,7 @@ const Outer = styled.div`
     margin-bottom: 20px;
 `
 
-const Input = styled.input`
+const StyledDatePicker = styled(DatePicker)`
     font-size: 1em;
     width: 100%;
     padding: 12px;
@@ -18,16 +20,12 @@ const Input = styled.input`
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
     }
-    &::placeholder{
-        color: ${theme.purple1}
-    }
 `
 
-const TextInput = ({
+const DateField = ({
     value,
     label,
     name,
-    type,
     placeholder,
     onChange,
     required
@@ -39,19 +37,14 @@ const TextInput = ({
         >
             {label}
         </Label>
-        <Input
-            value={value}
+        <StyledDatePicker 
             name={name}
-            type={type}
-            onChange={onChange}
-            placeholder={placeholder}
+            selected={value} 
+            onChange={onChange} 
+            dateFormat="dd/MM/yyyy"
             id={name}
             required={required}
         />
     </Outer>
 
-TextInput.defaultProps = {
-    type: "text"
-}
-
-export default TextInput
+export default DateField

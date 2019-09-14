@@ -1,29 +1,43 @@
 import React from "react"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
 import styled from "styled-components"
 import theme from "../_theme"
 import Label from "./Label"
+import dropdown from "./dropdown.svg"
 
 const Outer = styled.div`
     margin-bottom: 20px;
+    position: relative;
+    &::before{
+        content: "";
+        display: block;
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        right: 15px;
+        bottom: 17px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(${dropdown});
+    }
 `
 
-const StyledDatePicker = styled(DatePicker)`
+const Select = styled.select`
     font-size: 1em;
     width: 100%;
     padding: 12px;
     border: 2px solid ${theme.dark};
     color: ${theme.dark};
     border-radius: 5px;
+    appearance: none;
+    padding-right: 40px;
     &:focus{
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
     }
 `
 
-const DateInput = ({
-    value,
+const SelectField = ({
     label,
     name,
     placeholder,
@@ -37,14 +51,19 @@ const DateInput = ({
         >
             {label}
         </Label>
-        <StyledDatePicker 
+        <Select
             name={name}
-            selected={value} 
-            onChange={onChange} 
-            dateFormat="dd/MM/yyyy"
+            onChange={onChange}
+            placeholder={placeholder}
             id={name}
             required={required}
-        />
+        >
+            <option>Blah</option>
+        </Select>
     </Outer>
 
-export default DateInput
+SelectField.defaultProps = {
+    type: "text"
+}
+
+export default SelectField
