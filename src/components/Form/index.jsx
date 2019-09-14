@@ -1,20 +1,24 @@
 import React, { useState } from "react"
-import TextInput from "./TextInput"
-import DatePicker from "./DatePicker"
+import TextField from "./TextField"
+import DateField from "./DateField"
+import SelectField from "./SelectField"
 
 const Form = () => {
     const [date, setDate ] = useState(false)
     return(
         <form>
-            <TextInput 
+            <TextField
                 label="Blah"
             />
-            <DatePicker
+
+            <DateField
                 label="Start date"
                 required
                 value={date}
                 onChange={value => setDate(value)}
             />
+            <SelectField/>
+            
             <button type="submit">submit</button>
         </form>
     )
