@@ -20,6 +20,10 @@ const Style = createGlobalStyle`
         background-color: ${theme.dark} !important;
     }
 
+    .react-datepicker-wrapper{
+        width: 100%;
+    }
+
 
 `
 

@@ -27,10 +27,14 @@ const DateInput = ({
     label,
     name,
     placeholder,
-    onChange
+    onChange,
+    required
 }) =>
     <Outer>
-        <Label htmlFor={name}>
+        <Label 
+            htmlFor={name}
+            required={required}
+        >
             {label}
         </Label>
         <StyledDatePicker 
@@ -39,6 +43,7 @@ const DateInput = ({
             onChange={onChange} 
             dateFormat="dd/MM/yyyy"
             id={name}
+            required={required}
         />
     </Outer>
 

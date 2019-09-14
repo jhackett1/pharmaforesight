@@ -17,7 +17,7 @@ const Columns = styled.div`
 `
 
 const App = () => {
-  const [condition, setCondition] = useState("thinking")
+  const [condition, setCondition] = useState("initial")
 
   return(
     <Layout>

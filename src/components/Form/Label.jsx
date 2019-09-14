@@ -21,7 +21,7 @@ const Label = ({
 }) =>
     <BasicLabel>
         {children}
-        {required && <Optional>(optional)</Optional>}
+        {!required && <Optional>(optional)</Optional>}
     </BasicLabel>
 
 export default Label

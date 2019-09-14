@@ -51,8 +51,7 @@ const TextInput = ({
     </Outer>
 
 TextInput.defaultProps = {
-    type: "text",
-    required: true
+    type: "text"
 }
 
 export default TextInput

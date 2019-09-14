@@ -96,4 +96,8 @@ const Dial = ({
     )
 }
 
+Dial.defaultProps = {
+    condition: "initial"
+}
+
 export default Dial
