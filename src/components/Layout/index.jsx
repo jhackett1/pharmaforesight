@@ -15,6 +15,12 @@ const Style = createGlobalStyle`
     body{
         background: ${theme.background}
     }
+
+    .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range{
+        background-color: ${theme.dark} !important;
+    }
+
+
 `
 
 const Main = styled.main`

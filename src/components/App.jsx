@@ -3,6 +3,7 @@ import Layout from "./Layout"
 import styled from "styled-components"
 import Dial from "./Dial"
 import Panel from "./Panel"
+import Form from "./Form"
 
 const Columns = styled.div`
   max-width: 1100px;
@@ -23,7 +24,7 @@ const App = () => {
       <Columns>
         <div>
           <Panel>
-            Content
+            <Form/>
           </Panel>
         </div>
         <Dial condition={condition}/>
