@@ -4,13 +4,6 @@ import theme from "../_theme"
 import DialGraphic from "./DialGraphic"
 
 const Container = styled.div`
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `
 
 const OuterRing = styled.div`
@@ -83,7 +76,11 @@ const Dial = ({
     score 
 }) => {
 
-    return <DialGraphic/>
+    return (
+        <Container>
+            <DialGraphic/>
+        </Container>
+    )
 
     if(condition === "thinking") return(
         <Container>

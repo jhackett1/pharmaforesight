@@ -23,12 +23,6 @@ const Style = createGlobalStyle`
     .react-datepicker-wrapper{
         width: 100%;
     }
-
-
-`
-
-const Main = styled.main`
-    overflow: hidden;
 `
 
 const Layout = ({
@@ -37,9 +31,9 @@ const Layout = ({
     <>
         <Style/>
         <Header/>
-        <Main>
+        <main>
             {children}
-        </Main>
+        </main>
         <Footer/>
     </>
 

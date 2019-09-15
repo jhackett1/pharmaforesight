@@ -6,18 +6,36 @@ const Button = styled.button`
     display: block;
     background: ${theme.brightGreen};
     color: ${theme.dark};
-    border-radius: 0px 0px 5px 5px;
-    padding: 15px;
+    border-radius: 100px;
+    padding: 20px 15px;
     font-size: 1em;
     border: none;
     cursor: pointer;
-    transition: filter 0.2s ease-out;
+    font-weight: bold;
+    position: relative;
+    transition: transform 0.1s ease-out, filter 0.2s ease-out;
     &:hover{
         filter: brightness(1.05)
+    }
+    &:active{
+        transform: scale(0.95);
     }
     &:focus{
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.focus};
+    }
+    &:after{
+        position: absolute;
+        top: 0px;
+        z-index: -1;
+        left: 7%;
+        content: "";
+        display: block;
+        width: 86%;
+        height: 100%;
+        border-radius: 100px;
+        box-shadow: 0px 10px 20px 0px ${theme.brightGreen};
+        opacity: 0.3;
     }
 `
 

@@ -2,11 +2,10 @@ import React, { useState } from "react"
 import Layout from "./Layout"
 import styled from "styled-components"
 import Dial from "./Dial"
-import Panel, { InnerPanel } from "./Panel"
+import Panel from "./Panel"
 import TextField from "./fields/TextField"
 import DateField from "./fields/DateField"
 import SelectField from "./fields/SelectField"
-import SliderField from "./fields/SliderField"
 import CheckboxField from "./fields/CheckboxField"
 import Button from "./Button"
 
@@ -23,6 +22,27 @@ const Columns = styled.div`
 
 const Headline = styled.h2`
   margin-bottom: 25px;
+  @media screen and (min-width: 850px) {
+    margin-bottom: 35px;
+  }
+`
+
+const Subheadline = styled.h3`
+  margin-bottom: 25px;
+  grid-column: 1 / 3;
+`
+
+const FormColumns = styled.div`
+  @media screen and (min-width: 850px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 35px;
+    align-items: end;
+  }
+`
+
+const FirstPanel = styled(Panel)`
+  margin-top: -100px;
 `
 
 const App = () => {
@@ -41,40 +61,89 @@ const App = () => {
       <Columns>
 
         <form onSubmit={handleSubmit}>
-          <Panel>
-            <InnerPanel>
+
+          <FirstPanel>
 
               <Headline>About the drug</Headline>
+              <FormColumns>
+                <TextField
+                  label="Name of drug"
+                  required
+                />
+                <TextField
+                  label="Concept unique identifier"
+                  required
+                />
+                <TextField
+                  label="Indication"
+                  required
+                />
+                <TextField
+                  label="Target"
+                  required
+                />
+                <TextField
+                  label="Tree code"
+                  required
+                />
+                <Subheadline>Mechanism of action</Subheadline>
+                <TextField
+                  label="Action"
+                  required
+                />
+                <TextField
+                  label="Target"
+                  required
+                />
+              </FormColumns>
 
-              <TextField
-                  label="Blah"
-              />
-              <DateField
+          </FirstPanel>
+
+          <Panel>
+
+              <Headline>About the trial</Headline>
+              <FormColumns>
+                <DateField
                   label="Start date"
                   required
                   value={date}
                   onChange={value => setDate(value)}
-              />
-              <SelectField
-                label="Phase"
-              />
-              <SliderField/>
+                />
+                <DateField
+                  label="End date"
+                  value={date}
+                  onChange={value => setDate(value)}
+                />
+                <SelectField
+                  label="Phase"
+                  required
+                >
+                  <option value="1">I</option>
+                  <option value="2">II</option>
+                  <option value="3">III</option>
+                  <option value="4">IV</option>
+                </SelectField>
+                <TextField
+                  label="Sponsor"
+                  required
+                />
+                <TextField
+                  label="NCT identifier"
+                  required
+                />
 
-              <CheckboxField
-                label="Is the trial complete?"
-                checked={bool}
-                onChange={e => e.target.checked ? setBool(true) : setBool(false)}
-              />
 
-            </InnerPanel>
-          </Panel>
-          <Panel>
-            <InnerPanel>
-              <Headline>About the trial</Headline>
-              Second panel
-            </InnerPanel>
+
+                <CheckboxField
+                  label="Is the trial complete?"
+                  checked={bool}
+                  onChange={e => e.target.checked ? setBool(true) : setBool(false)}
+                />
+              </FormColumns>
+
             <Button type="submit">Predict</Button>
           </Panel>
+
         </form>
 
         <Dial condition={condition}/>

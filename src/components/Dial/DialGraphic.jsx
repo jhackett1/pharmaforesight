@@ -1,6 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 
+const Svg = styled.svg`
+    position: sticky;
+    top: 0px;
+`
+
 const Backing = styled.path`
   stroke-width: 2;
 `
@@ -18,7 +23,7 @@ const Inner = styled.path`
 `
 
 const DialGraphic = () =>
-    <svg viewBox="0 0 36 36">
+    <Svg viewBox="0 0 36 36">
         <defs>
             <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%"   stop-color="#63DAC2"/>
@@ -40,7 +45,7 @@ const DialGraphic = () =>
             fill="none"
             stroke="url(#linear)"
         />
-    </svg>
+    </Svg>
 
 
 export default DialGraphic
