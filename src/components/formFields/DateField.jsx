@@ -16,6 +16,7 @@ const StyledDatePicker = styled(DatePicker)`
     border: 2px solid ${theme.dark};
     color: ${theme.dark};
     border-radius: 5px;
+    background: #F8F8FB;
     &:focus{
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.brightGreen}

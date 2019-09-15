@@ -26,6 +26,7 @@ const Select = styled.select`
     font-size: 1em;
     width: 100%;
     padding: 12px;
+    background: #F8F8FB;
     border: 2px solid ${theme.dark};
     color: ${theme.dark};
     border-radius: 5px;

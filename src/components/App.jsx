@@ -6,6 +6,7 @@ import Panel, { InnerPanel } from "./Panel"
 import TextField from "./formFields/TextField"
 import DateField from "./formFields/DateField"
 import SelectField from "./formFields/SelectField"
+import SliderField from "./formFields/SliderField"
 import Button from "./Button"
 
 const Columns = styled.div`
@@ -41,6 +42,8 @@ const App = () => {
               />
               <SelectField
                 label="Phase"
+              />
+              <SliderField
               />
             </InnerPanel>
 
