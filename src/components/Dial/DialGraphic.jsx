@@ -1,8 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import theme from "../_theme"
 
 const Backing = styled.path`
-  stroke-width: 2;
+    transition: 0.2s ease-out;
+    stroke-width: ${props => props.condition === "finished" ? "2" : "0.75"};
 `
 
 const Inner = styled.path`
@@ -18,31 +20,37 @@ const Inner = styled.path`
 `
 
 const DialGraphic = ({
-    percentage
+    percentage,
+    condition
 }) =>
     <svg viewBox="0 0 36 36">
         <defs>
             <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%"   stop-color="#63DAC2"/>
-                <stop offset="100%" stop-color="#2811EF"/>
+                <stop offset="0%"   stopColor="#63DAC2"/>
+                <stop offset="100%" stopColor="#2811EF"/>
             </linearGradient>
         </defs>
         <Backing
+            condition={condition}
             d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"
             fill="none"
-            stroke="#D6D4E4"
+            stroke={condition === "thinking" ? theme.brightGreen : theme.purple3}
         />
 
-        <Inner
-            percentage={percentage}
-            d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831"
-            fill="none"
-            stroke="url(#linear)"
-        />
+        {(condition === "finished" && percentage) &&
+            <Inner
+                percentage={percentage}
+                d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="url(#linear)"
+            />
+        }
+
+
     </svg>
 
 

@@ -53,6 +53,7 @@ const App = () => {
   const [condition, setCondition] = useState("initial")
   const [date, setDate ] = useState(new Date())
   const [bool, setBool] = useState(true)
+  const [score, setScore] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -63,6 +64,9 @@ const App = () => {
     <Layout>
       <Columns>
         <aside>
+
+
+
           <form onSubmit={handleSubmit}>
 
             <FirstPanel>
@@ -147,7 +151,7 @@ const App = () => {
           <CallToAction/>
         </aside>
 
-        <Dial condition={condition} score={0.57}/>
+        <Dial condition={condition} score={score}/>
 
       </Columns>
     </Layout>

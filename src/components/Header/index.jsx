@@ -10,6 +10,7 @@ const Outer = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1;
     padding: 35px 25px 105px 25px;
     position: relative;
     background: ${theme.dark};

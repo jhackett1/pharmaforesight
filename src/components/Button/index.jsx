@@ -30,6 +30,7 @@ const Button = styled.button`
 export const PrimaryButton = styled(Button)`
     background: ${theme.brightGreen};
     border: none;
+    color: ${theme.dark};
     &:after{
         position: absolute;
         top: 0px;

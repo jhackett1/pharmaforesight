@@ -8,35 +8,16 @@ const Container = styled.div`
     top: 50px;
 `
 
-const OuterRing = styled.div`
-    width: 100%;
-    height: 100%;
+const ExpandingRings = styled.div`
+    z-index: -2;
     border-radius: 100%;
-    flex: 1;
-    top: 0px;
-    left: 0px;
+    top: 6.3%;
+    left: 6.3%;
+    right: 6.3%;
+    bottom: 6.3%;
     padding: 20px;
-    border: 3px solid ${theme.purple3};
-    box-shadow: 0px 0px 0px ${theme.brightGreen};
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: 1s;
-    position: relative;
-`
-
-const ThinkingOuterRing = styled(OuterRing)`
-    @keyframes pulsate{
-        from{
-            opacity: 1
-        }
-        50%{
-            opacity: 0.4;
-        }
-        to{
-            opacity: 1;
-        }
-    }
+    position: absolute;
     @keyframes grow{
         from{
             transform: scale(1);
@@ -47,31 +28,22 @@ const ThinkingOuterRing = styled(OuterRing)`
             opacity: 0;
         }
     }
-    border: 3px solid ${theme.brightGreen};
-    box-shadow: 0px 0px 60px ${theme.brightGreen};
-    animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     &:after{
         content: "";
         display: block;
         width: 100%;
         height: 100%;
         border-radius: 100%;
-        flex: 1;
         position: absolute;
         top: 0px;
         left: 0px;
         border: 1px solid ${theme.purple2};
         animation: grow 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
         animation-delay: 1s;
+        z-index: 2;
     }
 `
 
-const Message = styled.p`
-    color: ${theme.purple1};
-    font-size: 1.3em;
-    text-align: center;
-    max-width: 200px;
-`
 const TextHolder = styled.div`
     position: absolute;
     top: 10%;
@@ -86,7 +58,7 @@ const TextHolder = styled.div`
     align-items: center;
     text-align: center;
     @media screen and (min-width: 850px) {
-        padding: 45px;
+        padding: 55px;
     }
 `
 
@@ -97,6 +69,11 @@ const Probability = styled.p`
     @media screen and (min-width: 850px) {
        font-size: 4.5em;
     }
+    animation: fadeIn 0.2s ease-out;
+    @keyframes fadeIn{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
 `
 
 const Explanation = styled.p`
@@ -104,6 +81,11 @@ const Explanation = styled.p`
     font-weight: bold;
     color: ${theme.dark};
     margin-bottom: 10px;
+    animation: fadeIn 0.2s ease-out;
+    @keyframes fadeIn{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
 `
 
 const Improve = styled.button`
@@ -120,6 +102,36 @@ const Improve = styled.button`
         background: ${theme.focus};
         outline: 3px solid ${theme.focus};
     }
+    animation: fadeIn 0.2s ease-out;
+    @keyframes fadeIn{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+`
+
+const Message = styled.p`
+    color: ${theme.purple2};
+    font-size: 1.4em;
+    animation: fadeIn 0.2s ease-out;
+    @keyframes fadeIn{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+`
+
+const PulsingMessage = styled(Message)`
+    animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    @keyframes pulsate{
+        from{
+            opacity: 1
+        }
+        50%{
+            opacity: 0.4;
+        }
+        to{
+            opacity: 1;
+        }
+    }
 `
 
 const Dial = ({
@@ -127,34 +139,26 @@ const Dial = ({
     score 
 }) => {
 
-    let percentage = Math.floor(score*100)
+    let percentage = score ? Math.floor(score*100) : false
 
     return (
         <div>
             <Container>
-                <DialGraphic percentage={percentage}/>
+                {(condition === "thinking") && <ExpandingRings/>}
+                <DialGraphic percentage={percentage} condition={condition}/>
                 <TextHolder>
-                    <Probability>{percentage}%</Probability>
-                    <Explanation>Probability of trial success</Explanation>
-                    <Improve>Improve your prediction</Improve>
+                    { condition === "initial" && <Message>Answer some questions to get started</Message>}
+                    { condition === "thinking" && <PulsingMessage>Thinking...</PulsingMessage>}
+                    {( condition === "finished" && percentage) && 
+                        <>
+                            <Probability>{percentage}%</Probability>
+                            <Explanation>Probability of trial success</Explanation>
+                            <Improve>Improve your prediction</Improve>
+                        </>
+                    }
                 </TextHolder>
             </Container>
         </div>
-    )
-
-    if(condition === "thinking") return(
-        <Container>
-            <ThinkingOuterRing>
-                <Message>Thinking...</Message>
-            </ThinkingOuterRing>
-        </Container>
-    )
-    return(
-        <Container>
-            <OuterRing>
-                <Message>Answer some questions to get started</Message>
-            </OuterRing>
-        </Container>
     )
 }
 
