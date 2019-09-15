@@ -7,6 +7,7 @@ import TextField from "./formFields/TextField"
 import DateField from "./formFields/DateField"
 import SelectField from "./formFields/SelectField"
 import SliderField from "./formFields/SliderField"
+import CheckboxField from "./formFields/CheckboxField"
 import Button from "./Button"
 
 const Columns = styled.div`
@@ -21,12 +22,13 @@ const Columns = styled.div`
 `
 
 const Headline = styled.h2`
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `
 
 const App = () => {
   const [condition, setCondition] = useState("initial")
   const [date, setDate ] = useState(new Date())
+  const [bool, setBool] = useState(true)
 
   return(
     <Layout>
@@ -50,8 +52,14 @@ const App = () => {
               <SelectField
                 label="Phase"
               />
-              <SliderField
+              <SliderField/>
+
+              <CheckboxField
+                label="Is the trial complete?"
+                checked={bool}
+                onChange={e => e.target.checked ? setBool(true) : setBool(false)}
               />
+
             </InnerPanel>
 
             <Button type="submit">submit</Button>

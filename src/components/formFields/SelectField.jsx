@@ -5,7 +5,7 @@ import Label from "./Label"
 import dropdown from "./dropdown.svg"
 
 const Outer = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
     &::before{
         content: "";

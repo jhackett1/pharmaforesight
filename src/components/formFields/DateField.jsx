@@ -6,7 +6,7 @@ import theme from "../_theme"
 import Label from "./Label"
 
 const Outer = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 `
 
 const StyledDatePicker = styled(DatePicker)`
