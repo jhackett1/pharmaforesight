@@ -86,6 +86,7 @@ const App = () => {
                 <TextField
                   label="Indication"
                   required
+                  placeholder="eg. tardive dyskinesia"
                 />
                 <TextField
                   label="Target"
@@ -99,6 +100,7 @@ const App = () => {
                 <TextField
                   label="Action"
                   required
+                  placeholder="eg. antagonist"
                 />
                 <TextField
                   label="Target"
@@ -121,6 +123,7 @@ const App = () => {
                   value={date}
                   onChange={value => setDate(value)}
                 />
+                
                 <SelectField
                   label="Phase"
                   required
@@ -130,9 +133,11 @@ const App = () => {
                   <option value="3">III</option>
                   <option value="4">IV</option>
                 </SelectField>
+
                 <TextField
                   label="Sponsor"
                   required
+                  placeholder="eg. Pfizer"
                 />
                 <TextField
                   label="NCT identifier"
