@@ -23,7 +23,7 @@ const DetailsDialog = ({
     handleDismiss
 }) =>
     <StyledDialog isOpen={open} onDismiss={handleDismiss}>
-            <button onClick={handleDismiss}><img src={cross}/></button>
+            <button onClick={handleDismiss}><img src={cross} alt="close dialog"/></button>
             <h2>Improve your prediction</h2>
             <form>
                 <PrimaryButton>Recalculate</PrimaryButton>

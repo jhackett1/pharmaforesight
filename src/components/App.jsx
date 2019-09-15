@@ -30,8 +30,9 @@ const Headline = styled.h2`
 `
 
 const Subheadline = styled.h3`
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   grid-column: 1 / 3;
+  margin-top: 30px;
 `
 
 const FormColumns = styled.div`
@@ -51,7 +52,7 @@ const FirstPanel = styled(Panel)`
 `
 
 const App = () => {
-  const [condition, setCondition] = useState("initial")
+  const [condition, setCondition] = useState("thinking")
   const [date, setDate ] = useState(new Date())
   const [bool, setBool] = useState(true)
   const [score, setScore] = useState(null)
