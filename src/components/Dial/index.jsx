@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import { DataContext } from "../../contexts/DataContext"
 import styled from "styled-components"
 import theme from "../_theme"
 import DialGraphic from "./DialGraphic"
@@ -124,10 +125,10 @@ const PulsingMessage = styled(Message)`
 `
 
 const Dial = ({
-    condition,
-    score ,
     onAction
 }) => {
+
+    const { condition, score } = useContext(DataContext)
 
     let percentage = score ? Math.floor(score*100) : false
 

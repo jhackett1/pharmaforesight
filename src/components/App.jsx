@@ -56,7 +56,7 @@ const FirstPanel = styled(Panel)`
 
 const App = () => {
 
-  const { condition, setCondition, score, setScore } = useContext(DataContext)
+  const { condition, setCondition, setScore } = useContext(DataContext)
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const [formData, setFormData] = useState({
@@ -213,10 +213,10 @@ const App = () => {
 
               </FormColumns>
               <PrimaryButton 
-                type="submit" 
+                type="submit"
                 disabled={condition === "thinking"}
               >
-                {condition === "finished" ? "Recalculate" : "Predict"}
+                {condition === "initial" ? "Predict" : "Recalculate"}
               </PrimaryButton>
             </Panel>
 
@@ -224,7 +224,7 @@ const App = () => {
           <CallToAction onAction={()=> setDialogOpen(true)}/>
         </aside>
 
-        <Dial condition={condition} score={score} onAction={()=> setDialogOpen(true)}/>
+        <Dial onAction={()=> setDialogOpen(true)}/>
 
       </Columns>
 

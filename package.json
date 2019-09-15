@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@reach/dialog": "^0.2.9",
-    "date-fns": "^2.2.1",
-    "formik": "^1.5.8",
     "isomorphic-unfetch": "^3.0.0",
     "react": "^16.9.0",
     "react-datepicker": "^2.9.6",
