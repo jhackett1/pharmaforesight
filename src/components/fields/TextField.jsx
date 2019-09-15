@@ -31,7 +31,8 @@ const TextField = ({
     type,
     placeholder,
     onChange,
-    required
+    required,
+    ...props
 }) =>
     <Outer>
         <Label 
@@ -48,6 +49,7 @@ const TextField = ({
             placeholder={placeholder}
             id={name}
             required={required}
+            {...props}
         />
     </Outer>
 

@@ -57,7 +57,8 @@ const SliderField = ({
     max,
     step,
     name,
-    label
+    label,
+    ...props
 }) => {
     const [ value, setValue ] = useState(0)
     return(
@@ -80,6 +81,7 @@ const SliderField = ({
                     required
                     name={name}
                     id={name}
+                    {...props}
                 />
                 <Span>{max}</Span>
             </Values>
@@ -91,6 +93,7 @@ const SliderField = ({
                 onChange={e => setValue(e.target.value)}
                 type="range"
                 required
+                {...props}
             />
         </Outer>
     )

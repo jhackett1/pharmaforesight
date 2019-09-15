@@ -35,7 +35,8 @@ const SelectField = ({
     placeholder,
     onChange,
     required,
-    children
+    children,
+    ...props
 }) =>
     <Outer>
         <Label 
@@ -50,6 +51,7 @@ const SelectField = ({
             placeholder={placeholder}
             id={name}
             required={required}
+            {...props}
         >
             {children}
         </Select>

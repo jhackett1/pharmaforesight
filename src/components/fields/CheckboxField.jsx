@@ -60,7 +60,8 @@ const CheckboxField = ({
     label,
     name,
     onChange,
-    bottomMargin
+    bottomMargin,
+    ...props
 }) =>
     <Outer bottomMargin={bottomMargin}>
         <Input
@@ -69,6 +70,7 @@ const CheckboxField = ({
             type="checkbox"
             onChange={onChange}
             id={name}
+            {...props}
         />
         <Label 
             htmlFor={name}

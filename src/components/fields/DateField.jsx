@@ -29,7 +29,8 @@ const DateField = ({
     name,
     placeholder,
     onChange,
-    required
+    required,
+    ...props
 }) =>
     <Outer>
         <Label 
@@ -45,6 +46,7 @@ const DateField = ({
             dateFormat="dd/MM/yyyy"
             id={name}
             required={required}
+            {...props}
         />
     </Outer>
 
