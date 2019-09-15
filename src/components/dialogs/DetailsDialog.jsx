@@ -51,33 +51,34 @@ const DetailsDialog = ({
         <form>
             <FormColumns>
 
-                <SliderField
+                <TextField
+                    type="number"
                     label="Number of facilities"
                     min="1"
-                    max="200"
-                    step="1"
-                />
-                <SliderField
-                    label="Number of patients"
-                    min="1"
-                    max="1000"
                     step="1"
                 />
                 <TextField
                     type="number"
+                    label="Number of patients"
+                    min="1"
+                    step="1"
+                />
+                <TextField
+                    type="number"
+                    min="1"
                     label="Study duration (in days)"
                 />
                 <CheckboxField
-                    label="Orphan status"
+                    label="Orphan status?"
                     bottomMargin
                 />
 
                 <Subheadline>Prior approval</Subheadline>
                 <CheckboxField
-                    label="For indication"
+                    label="For indication?"
                 />   
                 <CheckboxField
-                    label="For mechanism of action"
+                    label="For mechanism of action?"
                 />   
 
                 <Subheadline>Investigator experience</Subheadline>
