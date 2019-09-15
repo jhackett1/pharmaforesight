@@ -17,9 +17,10 @@ const Optional = styled.span`
 
 const Label = ({
     children,
-    required
+    required,
+    ...props
 }) =>
-    <BasicLabel>
+    <BasicLabel {...props} >
         {children}
         {!required && <Optional>(optional)</Optional>}
     </BasicLabel>

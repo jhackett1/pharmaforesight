@@ -7,6 +7,7 @@ export default {
     white: "#F8F8FB",
     brightGreen: "#63DAC2",
     brightBlue: "#2811EF",
+    focus: "#FFBD74"
 
     // black: "#05060B",
     // pageBackground: "#141526",

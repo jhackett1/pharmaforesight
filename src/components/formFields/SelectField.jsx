@@ -34,7 +34,7 @@ const Select = styled.select`
     padding-right: 40px;
     &:focus{
         outline: none;
-        box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
+        box-shadow: 0px 0px 0px 3px ${theme.focus}
     }
 `
 
@@ -64,7 +64,7 @@ const SelectField = ({
     </Outer>
 
 SelectField.defaultProps = {
-    type: "text"
+    name: "select"
 }
 
 export default SelectField

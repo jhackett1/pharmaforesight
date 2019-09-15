@@ -19,7 +19,7 @@ const StyledDatePicker = styled(DatePicker)`
     background: #F8F8FB;
     &:focus{
         outline: none;
-        box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
+        box-shadow: 0px 0px 0px 3px ${theme.focus}
     }
 `
 
@@ -47,5 +47,9 @@ const DateField = ({
             required={required}
         />
     </Outer>
+
+DateField.defaultProps = {
+    name: "date"
+}
 
 export default DateField

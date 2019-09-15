@@ -17,7 +17,7 @@ const Input = styled.input`
     border-radius: 5px;
     &:focus{
         outline: none;
-        box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
+        box-shadow: 0px 0px 0px 3px ${theme.focus}
     }
     &::placeholder{
         color: ${theme.purple1}
@@ -52,7 +52,8 @@ const TextField = ({
     </Outer>
 
 TextField.defaultProps = {
-    type: "text"
+    type: "text",
+    name: "text"
 }
 
 export default TextField

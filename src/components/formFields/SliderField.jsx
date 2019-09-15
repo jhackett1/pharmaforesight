@@ -48,20 +48,23 @@ const Input = styled.input`
 
     &:focus{
         outline: none;
-        box-shadow: 0px 0px 0px 3px ${theme.brightGreen}
+        box-shadow: 0px 0px 0px 3px ${theme.focus}
     }
 `
 
 const SliderField = ({
     min,
     max,
-    step
+    step,
+    name
 }) => {
     const [ value, setValue ] = useState(0)
     return(
-        <Outer
-        >
-            <Label required>
+        <Outer>
+            <Label 
+                required 
+                htmlFor={name}
+            >
                 Label
             </Label>
             <Values>
@@ -74,6 +77,8 @@ const SliderField = ({
                     step={step} 
                     onChange={e => setValue(e.target.value)}
                     required
+                    name={name}
+                    id={name}
                 />
                 <Span>{max}</Span>
             </Values>
@@ -93,8 +98,8 @@ const SliderField = ({
 SliderField.defaultProps = {
     min: 0,
     max: 1,
-    step: 0.01
+    step: 0.01,
+    name: "slider"
 }
-
 
 export default SliderField
