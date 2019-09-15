@@ -11,6 +11,7 @@ const StyledDialog = styled(Dialog)`
     border-radius: 5px;
     color: ${theme.dark};
     padding: 25px;
+    position: relative;
     box-shadow: 0px 2px 5px rgba(10,2,79,0.1);
     @media screen and (min-width: 850px) {
         padding: 50px;
@@ -18,17 +19,23 @@ const StyledDialog = styled(Dialog)`
     }
 `
 
-const DetailsDialog = ({
+const CloseButton = styled.button`
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+`
+
+const GenericDialog = ({
     open,
-    handleDismiss
+    handleDismiss,
+    children
 }) =>
     <StyledDialog isOpen={open} onDismiss={handleDismiss}>
-            <button onClick={handleDismiss}><img src={cross} alt="close dialog"/></button>
-            <h2>Improve your prediction</h2>
-            <form>
-                <PrimaryButton>Recalculate</PrimaryButton>
-            </form>
-
+        <CloseButton onClick={handleDismiss}><img src={cross} alt="close dialog"/></CloseButton>
+        {children}
     </StyledDialog>
 
-export default DetailsDialog
+export default GenericDialog

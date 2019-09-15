@@ -56,7 +56,8 @@ const SliderField = ({
     min,
     max,
     step,
-    name
+    name,
+    label
 }) => {
     const [ value, setValue ] = useState(0)
     return(
@@ -65,7 +66,7 @@ const SliderField = ({
                 required 
                 htmlFor={name}
             >
-                Label
+                {label}
             </Label>
             <Values>
                 <Span>{min}</Span>

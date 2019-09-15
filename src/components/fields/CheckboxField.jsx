@@ -4,7 +4,7 @@ import theme from "../_theme"
 import tick from "./tick.svg"
 
 const Outer = styled.div`
-    margin-bottom: 25px;
+    margin-bottom: ${props => props.bottomMargin ? "25px" : "5px"};
     position: relative;
 `
 
@@ -20,10 +20,10 @@ const Label = styled.label`
         content: "";
         display: inline-block;
         margin-right: 15px;
-        height: 30px;
-        width: 30px; 
+        height: 35px;
+        width: 35px; 
         flex-shrink: 0;
-        border-radius: 2px;
+        border-radius: 5px;
         border: 2px solid ${theme.darkText};
         cursor: pointer;
     }
@@ -43,10 +43,10 @@ const Input = styled.input`
         position: absolute;
         content: "";
         display: block;
-        height: 23px;
-        width: 23px;
-        left: 5px;
-        top: 5px;
+        height: 25px;
+        width: 25px;
+        left: 7px;
+        top: 7px;
         background-image: url(${tick});
         background-size: contain;
         background-position: center;
@@ -59,9 +59,10 @@ const CheckboxField = ({
     checked,
     label,
     name,
-    onChange
+    onChange,
+    bottomMargin
 }) =>
-    <Outer>
+    <Outer bottomMargin={bottomMargin}>
         <Input
             checked={checked}
             name={name}

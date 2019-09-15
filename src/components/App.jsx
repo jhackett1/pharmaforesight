@@ -9,7 +9,7 @@ import SelectField from "./fields/SelectField"
 import CheckboxField from "./fields/CheckboxField"
 import { PrimaryButton } from "./Button"
 import CallToAction from "./CallToAction"
-import DetailsDialog from "./DetailsDialog"
+import DetailsDialog from "./dialogs/DetailsDialog"
 
 const Columns = styled.div`
   max-width: 1200px;
@@ -142,6 +142,7 @@ const App = () => {
                 <CheckboxField
                   label="Is the trial complete?"
                   checked={bool}
+                  bottomMargin
                   onChange={e => e.target.checked ? setBool(true) : setBool(false)}
                 />
               </FormColumns>
