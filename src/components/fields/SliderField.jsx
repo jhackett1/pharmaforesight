@@ -7,6 +7,8 @@ const Outer = styled.div`
     margin-bottom: 25px;
 `
 
+
+
 const Values = styled.div`
     display: flex;
     flex-direction: row;
@@ -92,6 +94,7 @@ const SliderField = ({
                 value={value}
                 onChange={e => setValue(e.target.value)}
                 type="range"
+                tabIndex="-1"
                 required
                 {...props}
             />
