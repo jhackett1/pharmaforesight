@@ -26,6 +26,10 @@ const CloseButton = styled.button`
     background: none;
     border: none;
     cursor: pointer;
+    &:focus{
+        background: ${theme.focus};
+        outline: 3px solid ${theme.focus};
+    }
 `
 
 const GenericDialog = ({
