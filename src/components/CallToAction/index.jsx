@@ -31,13 +31,15 @@ const P = styled.p`
     }
 `
 
-const CallToAction = () =>
+const CallToAction = ({
+    onAction
+}) =>
     <Outer>
         <div>
             <Headline>Improve your prediction</Headline>
             <P>We’ve made some assumptions about your trial based on your answers. You can improve your prediction by fine-tuning them.</P>
         </div>
-        <Button>Improve</Button>
+        <Button onClick={onAction}>Improve</Button>
     </Outer>
 
 export default CallToAction

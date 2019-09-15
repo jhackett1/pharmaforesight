@@ -9,6 +9,7 @@ import SelectField from "./fields/SelectField"
 import CheckboxField from "./fields/CheckboxField"
 import { PrimaryButton } from "./Button"
 import CallToAction from "./CallToAction"
+import DetailsDialog from "./DetailsDialog"
 
 const Columns = styled.div`
   max-width: 1200px;
@@ -54,6 +55,7 @@ const App = () => {
   const [date, setDate ] = useState(new Date())
   const [bool, setBool] = useState(true)
   const [score, setScore] = useState(null)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -62,11 +64,9 @@ const App = () => {
 
   return(
     <Layout>
+      {dialogOpen ? "true" : "false"}
       <Columns>
         <aside>
-
-
-
           <form onSubmit={handleSubmit}>
 
             <FirstPanel>
@@ -148,12 +148,15 @@ const App = () => {
             </Panel>
 
           </form>
-          <CallToAction/>
+          <CallToAction onAction={()=> setDialogOpen(true)}/>
         </aside>
 
-        <Dial condition={condition} score={score}/>
+        <Dial condition={condition} score={score} onAction={()=> setDialogOpen(true)}/>
 
       </Columns>
+
+      <DetailsDialog open={dialogOpen} handleDismiss={()=> setDialogOpen(false)}/>
+
     </Layout>
   )
 }

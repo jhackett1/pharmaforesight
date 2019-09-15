@@ -34,7 +34,7 @@ export const PrimaryButton = styled(Button)`
     &:after{
         position: absolute;
         top: 0px;
-        z-index: -1;
+        z-index: 0;
         left: 7%;
         content: "";
         display: block;

@@ -136,7 +136,8 @@ const PulsingMessage = styled(Message)`
 
 const Dial = ({
     condition,
-    score 
+    score ,
+    onAction
 }) => {
 
     let percentage = score ? Math.floor(score*100) : false
@@ -153,7 +154,7 @@ const Dial = ({
                         <>
                             <Probability>{percentage}%</Probability>
                             <Explanation>Probability of trial success</Explanation>
-                            <Improve>Improve your prediction</Improve>
+                            <Improve onClick={onAction}>Improve your prediction</Improve>
                         </>
                     }
                 </TextHolder>
