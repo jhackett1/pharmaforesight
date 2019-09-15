@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
+import DialGraphic from "./DialGraphic"
 
 const Container = styled.div`
     width: 100%;
@@ -12,7 +13,7 @@ const Container = styled.div`
     align-items: center;
 `
 
-const Outer = styled.div`
+const OuterRing = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -22,13 +23,14 @@ const Outer = styled.div`
     left: 0px;
     padding: 20px;
     border: 3px solid ${theme.purple3};
+    box-shadow: 0px 0px 0px ${theme.brightGreen};
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 1s;
 `
 
-const ThinkingOuter = styled(Outer)`
+const ThinkingOuterRing = styled(OuterRing)`
     @keyframes pulsate{
         from{
             opacity: 1
@@ -51,7 +53,7 @@ const ThinkingOuter = styled(Outer)`
         }
     }
     border: 3px solid ${theme.brightGreen};
-    /* box-shadow: 0px 0px 60px ${theme.brightBlue}; */
+    box-shadow: 0px 0px 60px ${theme.brightGreen};
     animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     &:after{
         content: "";
@@ -80,18 +82,21 @@ const Dial = ({
     condition,
     score 
 }) => {
+
+    return <DialGraphic/>
+
     if(condition === "thinking") return(
         <Container>
-            <ThinkingOuter>
+            <ThinkingOuterRing>
                 <Message>Thinking...</Message>
-            </ThinkingOuter>
+            </ThinkingOuterRing>
         </Container>
     )
     return(
         <Container>
-            <Outer>
+            <OuterRing>
                 <Message>Answer some questions to get started</Message>
-            </Outer>
+            </OuterRing>
         </Container>
     )
 }

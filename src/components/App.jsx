@@ -3,11 +3,11 @@ import Layout from "./Layout"
 import styled from "styled-components"
 import Dial from "./Dial"
 import Panel, { InnerPanel } from "./Panel"
-import TextField from "./formFields/TextField"
-import DateField from "./formFields/DateField"
-import SelectField from "./formFields/SelectField"
-import SliderField from "./formFields/SliderField"
-import CheckboxField from "./formFields/CheckboxField"
+import TextField from "./fields/TextField"
+import DateField from "./fields/DateField"
+import SelectField from "./fields/SelectField"
+import SliderField from "./fields/SliderField"
+import CheckboxField from "./fields/CheckboxField"
 import Button from "./Button"
 
 const Columns = styled.div`
@@ -17,7 +17,7 @@ const Columns = styled.div`
   @media screen and (min-width: 850px) {
     display: grid;
     grid-template-columns: 4fr 3fr;
-    grid-column-gap: 60px;
+    grid-column-gap: 80px;
   }
 `
 
@@ -30,11 +30,17 @@ const App = () => {
   const [date, setDate ] = useState(new Date())
   const [bool, setBool] = useState(true)
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setCondition("thinking")
+  }
+
   return(
     <Layout>
+      {condition}
       <Columns>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <Panel>
             <InnerPanel>
 
@@ -61,11 +67,13 @@ const App = () => {
               />
 
             </InnerPanel>
-
-            <Button type="submit">submit</Button>
           </Panel>
           <Panel>
-            Second panel
+            <InnerPanel>
+              <Headline>About the trial</Headline>
+              Second panel
+            </InnerPanel>
+            <Button type="submit">Predict</Button>
           </Panel>
         </form>
 

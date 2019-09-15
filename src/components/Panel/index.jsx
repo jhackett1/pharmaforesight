@@ -7,6 +7,8 @@ const Outer = styled.section`
     border-radius: 5px;
     color: ${theme.dark};
     margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
 `
 
 export const InnerPanel = styled.div`

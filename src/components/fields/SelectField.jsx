@@ -22,7 +22,7 @@ const Select = styled.select`
     background-image: url(${dropdown});
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 45fpx 10px;
+    background-size: 45px 10px;
     &:focus{
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.focus}
