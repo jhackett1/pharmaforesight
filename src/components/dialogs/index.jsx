@@ -2,7 +2,6 @@ import React from "react"
 import { Dialog } from "@reach/dialog"
 import styled from "styled-components"
 import theme from "../_theme"
-import { PrimaryButton } from "../Button"
 import cross from "./cross.svg"
 
 const StyledDialog = styled(Dialog)`

@@ -1,7 +1,7 @@
 import React from "react"
 import Dialog from "./index"
 import styled from "styled-components"
-import theme from "../_theme"
+// import theme from "../_theme"
 import { PrimaryButton } from "../Button"
 import TextField from "../fields/TextField"
 import CheckboxField from "../fields/CheckboxField"

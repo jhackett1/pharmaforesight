@@ -133,7 +133,7 @@ const Dial = ({
 
     return (
         <div>
-            <Container>
+            <Container aria-live="polite">
                 {(condition === "thinking") && <ExpandingRings/>}
                 <DialGraphic percentage={percentage} condition={condition}/>
                 <TextHolder>
