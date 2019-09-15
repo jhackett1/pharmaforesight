@@ -2,7 +2,7 @@ import React from "react"
 import Header from "../Header"
 import Footer from "../Footer"
 import { createGlobalStyle } from "styled-components"
-import styled from "styled-components"
+// import styled from "styled-components"
 import theme from "../_theme"
 
 const Style = createGlobalStyle`
@@ -45,21 +45,16 @@ const Style = createGlobalStyle`
     }
 
 `
-
-const Outer = styled.div`
-    overflow: hidden;
-`
-
 const Layout = ({
     children
 }) =>
-    <Outer>
+    <>
         <Style/>
         <Header/>
         <main>
             {children}
         </main>
         <Footer/>
-    </Outer>
+    </>
 
 export default Layout

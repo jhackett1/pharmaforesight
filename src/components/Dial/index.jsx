@@ -18,29 +18,18 @@ const ExpandingRings = styled.div`
     padding: 20px;
     transition: 1s;
     position: absolute;
-    @keyframes grow{
+    box-shadow: 0px 0px 80px ${theme.brightGreen}
+    animation: pulsate 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    @keyframes pulsate{
         from{
-            transform: scale(1);
-            opacity: 1;
+            opacity: 0.95
+        }
+        50%{
+            opacity: 0.1;
         }
         to{
-            transform: scale(2);
-            opacity: 0;
+            opacity: 0.95;
         }
-    }
-    &:after{
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        border: 1px solid ${theme.purple2};
-        animation: grow 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-        animation-delay: 1s;
-        z-index: 2;
     }
 `
 

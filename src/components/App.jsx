@@ -52,7 +52,7 @@ const FirstPanel = styled(Panel)`
 `
 
 const App = () => {
-  const [condition, setCondition] = useState("thinking")
+  const [condition, setCondition] = useState("initial")
   const [date, setDate ] = useState(new Date())
   const [bool, setBool] = useState(true)
   const [score, setScore] = useState(null)
