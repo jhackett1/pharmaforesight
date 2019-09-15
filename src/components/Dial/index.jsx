@@ -21,7 +21,7 @@ const Outer = styled.div`
     top: 0px;
     left: 0px;
     padding: 20px;
-    border: 3px solid ${theme.background};
+    border: 3px solid ${theme.purple3};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +70,7 @@ const ThinkingOuter = styled(Outer)`
 `
 
 const Message = styled.p`
-    color: ${theme.placeholder};
+    color: ${theme.purple1};
     font-size: 1.3em;
     text-align: center;
     max-width: 200px;
@@ -89,7 +89,7 @@ const Dial = ({
     )
     return(
         <Container>
-            <Outer >
+            <Outer>
                 <Message>Answer some questions to get started</Message>
             </Outer>
         </Container>

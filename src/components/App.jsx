@@ -20,6 +20,10 @@ const Columns = styled.div`
   }
 `
 
+const Headline = styled.h2`
+  margin-bottom: 20px;
+`
+
 const App = () => {
   const [condition, setCondition] = useState("initial")
   const [date, setDate ] = useState(new Date())
@@ -31,6 +35,9 @@ const App = () => {
         <form>
           <Panel>
             <InnerPanel>
+
+              <Headline>About the drug</Headline>
+
               <TextField
                   label="Blah"
               />
