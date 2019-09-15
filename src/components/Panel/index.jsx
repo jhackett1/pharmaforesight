@@ -12,6 +12,7 @@ const Panel = styled.section`
     box-shadow: 0px 2px 5px rgba(10,2,79,0.1);
     @media screen and (min-width: 850px) {
         padding: 50px;
+        margin-bottom: 35px;
     }
 `
 

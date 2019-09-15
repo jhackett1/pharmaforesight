@@ -15,6 +15,10 @@ const A = styled.a`
     &:hover{
         text-decoration: none;
     }
+    &:focus{
+        background: ${theme.focus};
+        outline: 3px solid ${theme.focus};
+    }
 `
 
 const Footer = () =>

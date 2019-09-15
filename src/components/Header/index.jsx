@@ -10,11 +10,11 @@ const Outer = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 35px 25px 85px 25px;
+    padding: 35px 25px 105px 25px;
     position: relative;
     background: ${theme.dark};
     @media screen and (min-width: 850px){
-        padding: 55px 25px 105px 25px;
+        padding: 45px 25px 125px 25px;
     }
 `
 

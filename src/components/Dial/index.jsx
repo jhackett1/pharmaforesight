@@ -4,6 +4,8 @@ import theme from "../_theme"
 import DialGraphic from "./DialGraphic"
 
 const Container = styled.div`
+    position: sticky;
+    top: 50px;
 `
 
 const OuterRing = styled.div`
@@ -11,7 +13,6 @@ const OuterRing = styled.div`
     height: 100%;
     border-radius: 100%;
     flex: 1;
-    position: absolute;
     top: 0px;
     left: 0px;
     padding: 20px;
@@ -21,6 +22,7 @@ const OuterRing = styled.div`
     align-items: center;
     justify-content: center;
     transition: 1s;
+    position: relative;
 `
 
 const ThinkingOuterRing = styled(OuterRing)`
@@ -70,16 +72,74 @@ const Message = styled.p`
     text-align: center;
     max-width: 200px;
 `
+const TextHolder = styled.div`
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    @media screen and (min-width: 850px) {
+        padding: 45px;
+    }
+`
+
+const Probability = styled.p`
+    font-size: 2em;
+    font-weight: bold;
+    color: ${theme.dark};
+    @media screen and (min-width: 850px) {
+       font-size: 4.5em;
+    }
+`
+
+const Explanation = styled.p`
+    font-size: 1.2em;
+    font-weight: bold;
+    color: ${theme.dark};
+    margin-bottom: 10px;
+`
+
+const Improve = styled.button`
+    font-size: 1em;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: ${theme.purple1};
+    &:hover{
+        text-decoration: none;
+    }
+    &:focus{
+        background: ${theme.focus};
+        outline: 3px solid ${theme.focus};
+    }
+`
 
 const Dial = ({
     condition,
     score 
 }) => {
 
+    let percentage = Math.floor(score*100)
+
     return (
-        <Container>
-            <DialGraphic/>
-        </Container>
+        <div>
+            <Container>
+                <DialGraphic percentage={percentage}/>
+                <TextHolder>
+                    <Probability>{percentage}%</Probability>
+                    <Explanation>Probability of trial success</Explanation>
+                    <Improve>Improve your prediction</Improve>
+                </TextHolder>
+            </Container>
+        </div>
     )
 
     if(condition === "thinking") return(

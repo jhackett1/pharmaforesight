@@ -21,7 +21,8 @@ const Label = styled.label`
         display: inline-block;
         margin-right: 15px;
         height: 30px;
-        width: 30px;
+        width: 30px; 
+        flex-shrink: 0;
         border-radius: 2px;
         border: 2px solid ${theme.darkText};
         cursor: pointer;

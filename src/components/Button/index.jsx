@@ -4,12 +4,12 @@ import theme from "../_theme"
 const Button = styled.button`
     width: 100%;
     display: block;
-    background: ${theme.brightGreen};
-    color: ${theme.dark};
+    background: ${theme.dark};
+    color: ${theme.white};
     border-radius: 100px;
+    border: 2px solid ${theme.dark};
     padding: 20px 15px;
     font-size: 1em;
-    border: none;
     cursor: pointer;
     font-weight: bold;
     position: relative;
@@ -24,6 +24,12 @@ const Button = styled.button`
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.focus};
     }
+
+`
+
+export const PrimaryButton = styled(Button)`
+    background: ${theme.brightGreen};
+    border: none;
     &:after{
         position: absolute;
         top: 0px;

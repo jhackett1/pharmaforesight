@@ -7,10 +7,11 @@ import TextField from "./fields/TextField"
 import DateField from "./fields/DateField"
 import SelectField from "./fields/SelectField"
 import CheckboxField from "./fields/CheckboxField"
-import Button from "./Button"
+import { PrimaryButton } from "./Button"
+import CallToAction from "./CallToAction"
 
 const Columns = styled.div`
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 25px;
   @media screen and (min-width: 850px) {
@@ -39,6 +40,9 @@ const FormColumns = styled.div`
     grid-column-gap: 35px;
     align-items: end;
   }
+  & + button {
+    margin-top: 30px;
+  }
 `
 
 const FirstPanel = styled(Panel)`
@@ -57,21 +61,21 @@ const App = () => {
 
   return(
     <Layout>
-      {condition}
       <Columns>
+        <aside>
+          <form onSubmit={handleSubmit}>
 
-        <form onSubmit={handleSubmit}>
-
-          <FirstPanel>
-
+            <FirstPanel>
               <Headline>About the drug</Headline>
               <FormColumns>
                 <TextField
                   label="Name of drug"
+                  placeholder="eg. Copraxinol"
                   required
                 />
                 <TextField
                   label="Concept unique identifier"
+                  placeholder="C..."
                   required
                 />
                 <TextField
@@ -96,11 +100,9 @@ const App = () => {
                   required
                 />
               </FormColumns>
+            </FirstPanel>
 
-          </FirstPanel>
-
-          <Panel>
-
+            <Panel>
               <Headline>About the trial</Headline>
               <FormColumns>
                 <DateField
@@ -129,24 +131,23 @@ const App = () => {
                 />
                 <TextField
                   label="NCT identifier"
+                  placeholder="NCT..."
                   required
                 />
-
-
-
                 <CheckboxField
                   label="Is the trial complete?"
                   checked={bool}
                   onChange={e => e.target.checked ? setBool(true) : setBool(false)}
                 />
               </FormColumns>
+              <PrimaryButton type="submit">Predict</PrimaryButton>
+            </Panel>
 
-            <Button type="submit">Predict</Button>
-          </Panel>
+          </form>
+          <CallToAction/>
+        </aside>
 
-        </form>
-
-        <Dial condition={condition}/>
+        <Dial condition={condition} score={0.57}/>
 
       </Columns>
     </Layout>
