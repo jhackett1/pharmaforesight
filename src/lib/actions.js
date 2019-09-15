@@ -1,9 +1,7 @@
-import { getDetails, getProbability } from "./apix"
+import { getDetails, getProbability } from "./api"
 
-export const makePrediction = (input) => {
-    return null
-}
-
-export const refinePrediction = (input) => {
-    return null
+export const makePrediction = async (formData) => {
+    const detailedData = await getDetails(formData)
+    const probability = await getProbability(detailedData)
+    return probability.pos
 }

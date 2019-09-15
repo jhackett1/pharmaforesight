@@ -24,6 +24,9 @@ const Button = styled.button`
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.focus};
     }
+    &[disabled]{
+        pointer-events: none;
+    }
 
 `
 
