@@ -44,140 +44,166 @@ const FormColumns = styled.div`
 
 const DetailsDialog = ({
     open,
-    handleDismiss
-}) =>
-    <Dialog open={open} handleDismiss={handleDismiss}>
-        <Headline>Improve your prediction</Headline>
-        <form>
-            <FormColumns>
-
-                <TextField
-                    type="number"
-                    label="Number of facilities"
-                    min="1"
-                    step="1"
-                />
-                <TextField
-                    type="number"
-                    label="Number of patients"
-                    min="1"
-                    step="1"
-                />
-                <TextField
-                    type="number"
-                    min="1"
-                    label="Study duration (in days)"
-                />
-                <CheckboxField
-                    label="Orphan status?"
-                    bottomMargin
-                />
-
-                <Subheadline>Prior approval</Subheadline>
-                <CheckboxField
-                    label="For indication?"
-                />   
-                <CheckboxField
-                    label="For mechanism of action?"
-                />   
-
-                <Subheadline>Investigator experience</Subheadline>
-                <SliderField
-                    label="Phase 1"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
-                <SliderField
-                    label="Phase 2"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
-                <SliderField
-                    label="Phase 3"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
+    handleDismiss,
+    formData
+}) => {
 
 
-                <Subheadline>Sponsor experience</Subheadline>
-                <SliderField
-                    label="Phase 1"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
-                <SliderField
-                    label="Phase 2"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
-                <SliderField
-                    label="Phase 3"
-                    min="0"
-                    max="10"
-                    step="1"
-                />
-
-                <Subheadline>Trial design</Subheadline>
-                <CheckboxField
-                    label="Single arm?"
-                />   
-                <CheckboxField
-                    label="Multiple arms?"
-                />   
-                <CheckboxField
-                    label="Masking?"
-                />   
-                <CheckboxField
-                    label="Non-inferiority?"
-                />   
-                <CheckboxField
-                    label="Open label?"
-                />   
-                <CheckboxField
-                    label="Randomised?"
-                />   
-                <CheckboxField
-                    label="Active comparator?"
-                />
-                <CheckboxField
-                    label="Placebo comparator?"
-                />   
 
 
-                <Subheadline>Sites in...</Subheadline>
-                <CheckboxField
-                    label="Canada?"
-                />
-                <CheckboxField
-                    label="China?"
-                />
-                <CheckboxField
-                    label="France?"
-                />
-                <CheckboxField
-                    label="Germany?"
-                />
-                <CheckboxField
-                    label="Italy?"
-                />
-                <CheckboxField
-                    label="UK?"
-                />
-                <CheckboxField
-                    label="US?"
-                />
+    return(
+        <Dialog open={open} handleDismiss={handleDismiss}>
+            <Headline>Improve your prediction</Headline>
+            <form>
+                <FormColumns>
 
-            </FormColumns>
-            <DialogFooter>
-                <PrimaryButton>Recalculate</PrimaryButton>
-            </DialogFooter>
+                    <TextField
+                        type="number"
+                        label="Number of facilities"
+                        min="1"
+                        step="1"
+                        name="site_number_of_facilities"
+                        value={formData.site_number_of_facilities || ""}
+                    />
+                    <TextField
+                        type="number"
+                        label="Number of patients"
+                        min="1"
+                        step="1"
+                        name="td_accrual"
+                        value={formData.td_accrual || ""}
+                    />
+                    <TextField
+                        type="number"
+                        min="1"
+                        label="Study duration (in days)"
+                        name="td_duration"
+                        value={formData.td_duration || ""}
+                    />
+                    <CheckboxField
+                        label="Orphan status?"
+                        bottomMargin
+                    />
 
-        </form>
-    </Dialog>
+                    <Subheadline>Prior approval</Subheadline>
+                    <CheckboxField
+                        label="For indication?"
+                    />   
+                    <CheckboxField
+                        label="For mechanism of action?"
+                    />   
+
+                    <Subheadline>Investigator experience</Subheadline>
+                    <SliderField
+                        label="Phase 1"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="invest_phase1_total"
+                        value={formData.invest_phase1_total || ""}
+                    />
+                    <SliderField
+                        label="Phase 2"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="invest_phase2_total"
+                        value={formData.invest_phase2_total || ""}
+                    />
+                    <SliderField
+                        label="Phase 3"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="invest_phase3_total"
+                        value={formData.invest_phase3_total || ""}
+                    />
+
+
+                    <Subheadline>Sponsor experience</Subheadline>
+                    <SliderField
+                        label="Phase 1"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="sponsor_phase1_total"
+                        value={formData.sponsor_phase1_total || ""}
+                    />
+                    <SliderField
+                        label="Phase 2"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="sponsor_phase2_total"
+                        value={formData.sponsor_phase2_total || ""}
+                    />
+                    <SliderField
+                        label="Phase 3"
+                        min="0"
+                        max="10"
+                        step="1"
+                        name="sponsor_phase3_total"
+                        value={formData.sponsor_phase3_total || ""}
+                    />
+
+                    <Subheadline>Trial design</Subheadline>
+                    <CheckboxField
+                        label="Single arm?"
+                    />   
+                    <CheckboxField
+                        label="Multiple arms?"
+                    />   
+                    <CheckboxField
+                        label="Masking?"
+                    />   
+                    <CheckboxField
+                        label="Non-inferiority?"
+                    />   
+                    <CheckboxField
+                        label="Open label?"
+                    />   
+                    <CheckboxField
+                        label="Randomised?"
+                    />   
+                    <CheckboxField
+                        label="Active comparator?"
+                    />
+                    <CheckboxField
+                        label="Placebo comparator?"
+                    />   
+
+
+                    <Subheadline>Sites in...</Subheadline>
+                    <CheckboxField
+                        label="Canada?"
+                    />
+                    <CheckboxField
+                        label="China?"
+                    />
+                    <CheckboxField
+                        label="France?"
+                    />
+                    <CheckboxField
+                        label="Germany?"
+                    />
+                    <CheckboxField
+                        label="Italy?"
+                    />
+                    <CheckboxField
+                        label="UK?"
+                    />
+                    <CheckboxField
+                        label="US?"
+                    />
+
+                </FormColumns>
+                <DialogFooter>
+                    <PrimaryButton>Recalculate</PrimaryButton>
+                </DialogFooter>
+
+            </form>
+        </Dialog>
+    )
+}
 
 export default DetailsDialog

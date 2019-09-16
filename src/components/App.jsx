@@ -74,11 +74,10 @@ const App = () => {
     e.preventDefault()
     setCondition("thinking")
     const { probability, detailedData } = await makePrediction(formData)
-    console.log(probability, detailedData)
     // augment the state with extra variables from api
     setFormData({
       ...formData,
-      detailedData
+      ...detailedData
     })
     setScore(probability)
     setCondition("finished")
@@ -234,7 +233,7 @@ const App = () => {
 
       </Columns>
 
-      <DetailsDialog open={dialogOpen} handleDismiss={()=> setDialogOpen(false)}/>
+      <DetailsDialog formData={formData} open={dialogOpen} handleDismiss={()=> setDialogOpen(false)}/>
 
     </Layout>
   )
