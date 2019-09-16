@@ -73,7 +73,13 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setCondition("thinking")
-    const probability = await makePrediction(formData)
+    const { probability, detailedData } = await makePrediction(formData)
+    console.log(probability, detailedData)
+    // augment the state with extra variables from api
+    setFormData({
+      ...formData,
+      detailedData
+    })
     setScore(probability)
     setCondition("finished")
   }
