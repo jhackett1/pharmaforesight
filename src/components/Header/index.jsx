@@ -6,10 +6,6 @@ import theme from "../_theme"
 const Outer = styled.header`
     color: ${theme.white};
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     z-index: 1;
     padding: 35px 25px 105px 25px;
     position: relative;
@@ -17,6 +13,24 @@ const Outer = styled.header`
     @media screen and (min-width: 850px){
         padding: 45px 25px 125px 25px;
     }
+`
+
+const Animated = styled.div`
+    @keyframes fadeInOut{
+        from{
+            transform: scale(0.7);
+            opacity: 0;
+        }
+        to{
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInOut 1s ease-out;
 `
 
 const Img = styled.img`
@@ -34,8 +48,10 @@ const P = styled.p`
 
 const Header = () =>
     <Outer>
-        <Img src={logo} alt="PharmaForesight"/>
-        <P>To get started, answer some questions about your trial.</P>
+        <Animated>
+            <Img src={logo} alt="PharmaForesight"/>
+            <P>To get started, answer some questions about your trial.</P>
+        </Animated>
     </Outer>
 
 export default Header
