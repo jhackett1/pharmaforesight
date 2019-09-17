@@ -152,51 +152,66 @@ const DetailsDialog = ({
                     <Subheadline>Trial design</Subheadline>
                     <CheckboxField
                         label="Single arm?"
+                        checked={formData.td_single_arm | false}
                     />   
                     <CheckboxField
                         label="Multiple arms?"
+                        checked={formData.td_multiple_arms | false}
                     />   
                     <CheckboxField
                         label="Masking?"
+                        checked={formData.td_masking | false}
                     />   
                     <CheckboxField
                         label="Non-inferiority?"
+                        checked={formData.td_non_inferiority | false}
                     />   
                     <CheckboxField
                         label="Open label?"
+                        checked={formData.td_open_label | false}
                     />   
                     <CheckboxField
                         label="Randomised?"
+                        checked={formData.td_randomized | false}
                     />   
                     <CheckboxField
                         label="Active comparator?"
+                        checked={formData.td_active_comp | false}
                     />
                     <CheckboxField
                         label="Placebo comparator?"
+                        checked={formData.td_placebo_comp | false}
                     />   
 
 
                     <Subheadline>Sites in...</Subheadline>
                     <CheckboxField
                         label="Canada?"
+                        checked={formData.site_c_can | false}
                     />
                     <CheckboxField
                         label="China?"
+                        checked={formData.site_c_chn | false}
                     />
                     <CheckboxField
                         label="France?"
+                        checked={formData.site_c_fra | false}
                     />
                     <CheckboxField
                         label="Germany?"
+                        checked={formData.site_c_ger | false}
                     />
                     <CheckboxField
                         label="Italy?"
+                        checked={formData.site_c_ita | false}
                     />
                     <CheckboxField
                         label="UK?"
+                        checked={formData.site_c_uk | false}
                     />
                     <CheckboxField
                         label="US?"
+                        checked={formData.site_c_us | false}
                     />
 
                 </FormColumns>
