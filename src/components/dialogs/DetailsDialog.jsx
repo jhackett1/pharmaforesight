@@ -45,11 +45,27 @@ const FormColumns = styled.div`
 const DetailsDialog = ({
     open,
     handleDismiss,
-    formData
+    formData,
+    setFormData
 }) => {
 
+    const handleChange = e => {
+        console.log(e.target.name, e.target.value)
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value
+        })
+    }
 
-
+    const handleCheckboxChange = e => {
+        e.target.checked ? setFormData({
+            ...formData,
+            [e.target.name]: true
+        }) : setFormData({
+            ...formData,
+            [e.target.name]: false
+        })
+    }
 
     return(
         <Dialog open={open} handleDismiss={handleDismiss}>
@@ -64,6 +80,7 @@ const DetailsDialog = ({
                         step="1"
                         name="site_number_of_facilities"
                         value={formData.site_number_of_facilities || ""}
+                        onChange={handleChange}
                     />
                     <TextField
                         type="number"
@@ -72,6 +89,7 @@ const DetailsDialog = ({
                         step="1"
                         name="td_accrual"
                         value={formData.td_accrual || ""}
+                        onChange={handleChange}
                     />
                     <TextField
                         type="number"
@@ -79,20 +97,27 @@ const DetailsDialog = ({
                         label="Study duration (in days)"
                         name="td_duration"
                         value={formData.td_duration || ""}
+                        onChange={handleChange}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Orphan status?"
                         bottomMargin
+                        name="reg_orphan"
                         checked={formData.reg_orphan || false}
                     />
 
                     <Subheadline>Prior approval</Subheadline>
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="For indication?"
+                        name="indication_precedent"
                         checked={formData.indication_precedent || false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="For mechanism of action?"
+                        name="moa_precedent"
                         checked={formData.moa_precedent || false}
                     />   
 
@@ -104,6 +129,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase1_total"
                         value={formData.invest_phase1_total || 0}
+                        onChange={handleChange}
                     />
                     <SliderField
                         label="Phase 2"
@@ -112,6 +138,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase2_total"
                         value={formData.invest_phase2_total || 0}
+                        onChange={handleChange}
                     />
                     <SliderField
                         label="Phase 3"
@@ -120,6 +147,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase3_total"
                         value={formData.invest_phase3_total || 0}
+                        onChange={handleChange}
                     />
 
 
@@ -130,7 +158,8 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="sponsor_phase1_total"
-                        value={formData.sponsor_phase1_total || ""}
+                        value={formData.sponsor_phase1_total || 0}
+                        onChange={handleChange}
                     />
                     <SliderField
                         label="Phase 2"
@@ -138,7 +167,8 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="sponsor_phase2_total"
-                        value={formData.sponsor_phase2_total || ""}
+                        value={formData.sponsor_phase2_total || 0}
+                        onChange={handleChange}
                     />
                     <SliderField
                         label="Phase 3"
@@ -146,71 +176,102 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="sponsor_phase3_total"
-                        value={formData.sponsor_phase3_total || ""}
+                        value={formData.sponsor_phase3_total || 0}
+                        onChange={handleChange}
                     />
 
                     <Subheadline>Trial design</Subheadline>
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Single arm?"
+                        name="td_single_arm"
                         checked={formData.td_single_arm | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Multiple arms?"
+                        name="td_multiple_arms"
                         checked={formData.td_multiple_arms | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Masking?"
+                        name="td_masking"
                         checked={formData.td_masking | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Non-inferiority?"
+                        name="td_non_inferiority"
                         checked={formData.td_non_inferiority | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Open label?"
+                        name="td_open_label"
                         checked={formData.td_open_label | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Randomised?"
+                        name="td_randomized"
                         checked={formData.td_randomized | false}
                     />   
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Active comparator?"
+                        name="td_active_comp"
                         checked={formData.td_active_comp | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Placebo comparator?"
+                        name="td_placebo_comp"
                         checked={formData.td_placebo_comp | false}
                     />   
 
 
                     <Subheadline>Sites in...</Subheadline>
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Canada?"
+                        name="site_c_can"
                         checked={formData.site_c_can | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="China?"
+                        name="site_c_chn"
                         checked={formData.site_c_chn | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="France?"
+                        name="site_c_fra"
                         checked={formData.site_c_fra | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Germany?"
+                        name="site_c_ger"
                         checked={formData.site_c_ger | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="Italy?"
+                        name="site_c_ita"
                         checked={formData.site_c_ita | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="UK?"
+                        name="site_c_uk"
                         checked={formData.site_c_uk | false}
                     />
                     <CheckboxField
+                        onChange={handleCheckboxChange}
                         label="US?"
+                        name="site_c_us"
                         checked={formData.site_c_us | false}
                     />
 

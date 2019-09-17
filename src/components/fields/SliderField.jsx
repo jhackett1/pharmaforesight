@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
 import Label from "./Label"
@@ -60,9 +60,11 @@ const SliderField = ({
     step,
     name,
     label,
+    onChange,
+    value,
     ...props
 }) => {
-    const [ value, setValue ] = useState(0)
+    // const [ value, setValue ] = useState(0)
     return(
         <Outer>
             <Label 
@@ -79,7 +81,7 @@ const SliderField = ({
                     max={max} 
                     min={min} 
                     step={step} 
-                    onChange={e => setValue(e.target.value)}
+                    onChange={onChange}
                     required
                     name={name}
                     id={name}
@@ -92,7 +94,7 @@ const SliderField = ({
                 max={max}
                 step={step}
                 value={value}
-                onChange={e => setValue(e.target.value)}
+                onChange={onChange}
                 type="range"
                 tabIndex="-1"
                 required

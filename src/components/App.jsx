@@ -248,6 +248,7 @@ const App = () => {
 
       <DetailsDialog 
         formData={formData} 
+        setFormData={setFormData}
         open={dialogOpen} 
         handleDismiss={()=> setDialogOpen(false)}
       />
