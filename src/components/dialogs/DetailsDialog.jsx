@@ -23,19 +23,21 @@ const Subheadline = styled.h3`
 const DialogFooter = styled.footer`
     position: sticky;
     bottom: 0px;
-    padding: 25px 0px;
+    padding: 0px 0px 25px 0px;
     background: linear-gradient(to bottom, rgba(248,248,251,0), rgba(248,248,251,1));
     @media screen and (min-width: 850px){
-        padding: 35px 0px;
+        padding: 0px 0px 35px 0px;
     }
 `
 
 const FormColumns = styled.div`
+    margin-bottom: 25px;
   @media screen and (min-width: 850px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 35px;
     align-items: end;
+    margin-bottom: 35px;
   }
   & + button {
     margin-top: 30px;
@@ -46,7 +48,8 @@ const DetailsDialog = ({
     open,
     handleDismiss,
     formData,
-    setFormData
+    setFormData,
+    handleSubmit
 }) => {
 
     const handleChange = e => {
@@ -70,7 +73,10 @@ const DetailsDialog = ({
     return(
         <Dialog open={open} handleDismiss={handleDismiss}>
             <Headline>Improve your prediction</Headline>
-            <form>
+            <form onSubmit={e => {
+                handleSubmit(e)
+                handleDismiss()
+            }}>
                 <FormColumns>
 
                     <TextField

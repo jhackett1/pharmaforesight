@@ -251,6 +251,7 @@ const App = () => {
         setFormData={setFormData}
         open={dialogOpen} 
         handleDismiss={()=> setDialogOpen(false)}
+        handleSubmit={handleSubmit}
       />
 
     </Layout>
