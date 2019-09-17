@@ -83,14 +83,17 @@ const DetailsDialog = ({
                     <CheckboxField
                         label="Orphan status?"
                         bottomMargin
+                        checked={formData.reg_orphan || false}
                     />
 
                     <Subheadline>Prior approval</Subheadline>
                     <CheckboxField
                         label="For indication?"
+                        checked={formData.indication_precedent || false}
                     />   
                     <CheckboxField
                         label="For mechanism of action?"
+                        checked={formData.moa_precedent || false}
                     />   
 
                     <Subheadline>Investigator experience</Subheadline>
@@ -100,7 +103,7 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="invest_phase1_total"
-                        value={formData.invest_phase1_total || ""}
+                        value={formData.invest_phase1_total || 0}
                     />
                     <SliderField
                         label="Phase 2"
@@ -108,7 +111,7 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="invest_phase2_total"
-                        value={formData.invest_phase2_total || ""}
+                        value={formData.invest_phase2_total || 0}
                     />
                     <SliderField
                         label="Phase 3"
@@ -116,7 +119,7 @@ const DetailsDialog = ({
                         max="10"
                         step="1"
                         name="invest_phase3_total"
-                        value={formData.invest_phase3_total || ""}
+                        value={formData.invest_phase3_total || 0}
                     />
 
 

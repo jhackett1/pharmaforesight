@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import { DataContext } from "../contexts/DataContext"
 import { makePrediction } from "../lib/actions"
+import querystring from "querystring"
 
 import Layout from "./Layout"
 import styled from "styled-components"
@@ -59,8 +60,16 @@ const App = () => {
   const { condition, setCondition, setScore } = useContext(DataContext)
   const [dialogOpen, setDialogOpen] = useState(false)
 
+  let urlQuery = {}
+  try {
+    urlQuery = querystring.parse(window.location.search.substr(1))
+  } catch(e) {
+    // ignore malformed uris
+  }
+
   const [formData, setFormData] = useState({
-    start_date: new Date()
+    start_date: new Date(),
+    ...urlQuery
   })
 
   const handleChange = e => {
@@ -79,6 +88,10 @@ const App = () => {
       ...formData,
       ...detailedData
     })
+
+    // Log whole state
+    console.log(formData)
+
     setScore(probability)
     setCondition("finished")
   }
@@ -233,7 +246,11 @@ const App = () => {
 
       </Columns>
 
-      <DetailsDialog formData={formData} open={dialogOpen} handleDismiss={()=> setDialogOpen(false)}/>
+      <DetailsDialog 
+        formData={formData} 
+        open={dialogOpen} 
+        handleDismiss={()=> setDialogOpen(false)}
+      />
 
     </Layout>
   )
