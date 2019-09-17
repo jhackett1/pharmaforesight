@@ -26,6 +26,8 @@ const Button = styled.button`
     }
     &[disabled]{
         pointer-events: none;
+        background: ${theme.purple2};
+        border-color: ${theme.purple2};
     }
 
 `
@@ -46,6 +48,11 @@ export const PrimaryButton = styled(Button)`
         border-radius: 100px;
         box-shadow: 0px 10px 20px 0px ${theme.brightGreen};
         opacity: 0.3;
+    }
+    &[disabled]{
+        pointer-events: none;
+        background: ${theme.brightGreen};
+        /* border-color: ${theme.purple2}; */
     }
 `
 

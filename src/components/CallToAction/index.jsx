@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import { DataContext } from "../../contexts/DataContext"
 import styled from "styled-components"
 import theme from "../_theme"
 import Button from "../Button"
@@ -33,14 +34,23 @@ const P = styled.p`
 
 const CallToAction = ({
     onAction
-}) =>
-    <Outer>
-        <div>
-            <Headline>Improve your prediction</Headline>
-            <P>We’ve made some assumptions about your trial based on your answers. You can improve your prediction by fine-tuning them.</P>
-        </div>
-        <Button onClick={onAction}>Improve</Button>
-    </Outer>
+}) => {
+    const { condition } = useContext(DataContext)
+    return(
+        <Outer>
+            <div>
+                <Headline>Refine your prediction</Headline>
+                <P>We’ve made some assumptions about your trial based on your answers. You can explore different scenarios by fine-tuning them.</P>
+            </div>
+            <Button 
+                onClick={onAction}
+                disabled={condition !== "finished"}
+            >
+                Refine
+            </Button>
+        </Outer>
+    )
+}
 
 export default CallToAction
 

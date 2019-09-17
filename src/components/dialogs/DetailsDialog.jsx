@@ -70,7 +70,7 @@ const DetailsDialog = ({
 
     return(
         <Dialog open={open} handleDismiss={handleDismiss}>
-            <Headline>Improve your prediction</Headline>
+            <Headline>Refine your prediction</Headline>
             <form onSubmit={e => {
                 handleSubmit(e)
                 handleDismiss()
