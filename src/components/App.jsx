@@ -191,11 +191,14 @@ const App = () => {
                 <SelectField
                   label="Phase"
                   required
+                  name="td_phase"
+                  value={formData.td_phase || ""}
+                  onChange={handleChange}
                 >
-                  <option value="1">I</option>
-                  <option value="2">II</option>
-                  <option value="3">III</option>
-                  <option value="4">IV</option>
+                  <option value="Phase 1">I</option>
+                  <option value="Phase 2">II</option>
+                  <option value="Phase 3">III</option>
+                  <option value="Phase 4">IV</option>
                 </SelectField>
 
                 <TextField
