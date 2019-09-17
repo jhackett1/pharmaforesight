@@ -7,8 +7,6 @@ const Outer = styled.div`
     margin-bottom: 25px;
 `
 
-
-
 const Values = styled.div`
     display: flex;
     flex-direction: row;
@@ -63,46 +61,42 @@ const SliderField = ({
     onChange,
     value,
     ...props
-}) => {
-    // const [ value, setValue ] = useState(0)
-    return(
-        <Outer>
-            <Label 
-                required 
-                htmlFor={name}
-            >
-                {label}
-            </Label>
-            <Values>
-                <Span>{min}</Span>
-                <Input 
-                    value={value} 
-                    type="number" 
-                    max={max} 
-                    min={min} 
-                    step={step} 
-                    onChange={onChange}
-                    required
-                    name={name}
-                    id={name}
-                    {...props}
-                />
-                <Span>{max}</Span>
-            </Values>
-            <Slider
-                min={min}
-                max={max}
-                step={step}
-                value={value}
+}) => 
+    <Outer>
+        <Label 
+            required 
+            htmlFor={name}
+        >
+            {label}
+        </Label>
+        <Values>
+            <Span>{min}</Span>
+            <Input 
+                value={value} 
+                type="number" 
+                max={max} 
+                min={min} 
+                step={step} 
                 onChange={onChange}
-                type="range"
-                tabIndex="-1"
                 required
+                name={name}
+                id={name}
                 {...props}
             />
-        </Outer>
-    )
-}
+            <Span>{max}</Span>
+        </Values>
+        <Slider
+            min={min}
+            max={max}
+            step={step}
+            value={value}
+            onChange={onChange}
+            type="range"
+            tabIndex="-1"
+            required
+            name={name}
+        />
+    </Outer>
 
 SliderField.defaultProps = {
     min: 0,

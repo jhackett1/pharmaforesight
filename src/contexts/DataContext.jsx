@@ -8,13 +8,16 @@ const DataContextProvider = ({
 
     const [condition, setCondition] = useState("initial")
     const [score, setScore] = useState(null)
+    const [improved, setImproved] = useState(false)
     
     return(
         <DataContext.Provider value={{
             condition,
             score,
+            improved,
             setCondition,
-            setScore
+            setScore,
+            setImproved
         }}>
             {children}
         </DataContext.Provider>

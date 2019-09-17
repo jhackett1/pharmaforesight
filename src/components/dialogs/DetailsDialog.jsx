@@ -1,7 +1,6 @@
 import React from "react"
 import Dialog from "./index"
 import styled from "styled-components"
-// import theme from "../_theme"
 import { PrimaryButton } from "../Button"
 import TextField from "../fields/TextField"
 import CheckboxField from "../fields/CheckboxField"
@@ -53,7 +52,6 @@ const DetailsDialog = ({
 }) => {
 
     const handleChange = e => {
-        console.log(e.target.name, e.target.value)
         setFormData({
           ...formData,
           [e.target.name]: e.target.value
@@ -76,6 +74,7 @@ const DetailsDialog = ({
             <form onSubmit={e => {
                 handleSubmit(e)
                 handleDismiss()
+
             }}>
                 <FormColumns>
 
