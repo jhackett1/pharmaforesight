@@ -69,6 +69,8 @@ const App = () => {
 
   const [formData, setFormData] = useState({
     start_date: new Date(),
+    trial_completed: 0,
+    end_date: "",
     ...urlQuery
   })
 
@@ -191,8 +193,8 @@ const App = () => {
                 <SelectField
                   label="Phase"
                   required
-                  name="td_phase"
-                  value={formData.td_phase || ""}
+                  name="phase"
+                  value={formData.phase || ""}
                   onChange={handleChange}
                 >
                   <option value="Phase 2">II</option>

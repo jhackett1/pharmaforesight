@@ -43,7 +43,7 @@ const DateField = ({
             name={name}
             selected={value} 
             onChange={onChange} 
-            dateFormat="dd/MM/yyyy"
+            dateFormat="yyyy-MM-dd"
             id={name}
             required={required}
             {...props}
