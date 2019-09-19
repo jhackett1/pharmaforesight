@@ -1,6 +1,7 @@
 import React from "react"
 import Dialog from "./index"
 import styled from "styled-components"
+import theme from "../_theme"
 import { PrimaryButton } from "../Button"
 import TextField from "../fields/TextField"
 import CheckboxField from "../fields/CheckboxField"
@@ -17,6 +18,15 @@ const Subheadline = styled.h3`
   margin-bottom: 20px;
   grid-column: 1 / 3;
   margin-top: 30px;
+`
+
+const Caption = styled.span`
+    color: ${theme.purple1};
+    font-size: 0.8em;
+    font-weight: normal;
+    display: block;
+    margin-top: 5px;
+
 `
 
 const DialogFooter = styled.footer`
@@ -126,7 +136,10 @@ const DetailsDialog = ({
                         checked={formData.moa_precedent || false}
                     />   
 
-                    <Subheadline>Investigator experience</Subheadline>
+                    <Subheadline>
+                        Investigator experience
+                        <Caption>Number of trials conducted</Caption>
+                    </Subheadline>
                     <TextField
                         type="number"
                         label="Phase 1"
@@ -158,7 +171,10 @@ const DetailsDialog = ({
                         required
                     />
 
-                    <Subheadline>Sponsor experience</Subheadline>
+                    <Subheadline>
+                        Sponsor experience
+                        <Caption>Number of trials conducted</Caption>
+                    </Subheadline>
                     <TextField
                         type="number"
                         label="Phase 1"
