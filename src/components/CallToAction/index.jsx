@@ -40,7 +40,7 @@ const CallToAction = ({
         <Outer>
             <div>
                 <Headline>Refine your prediction</Headline>
-                <P>We’ve made some assumptions about your trial based on your answers. You can explore different scenarios by fine-tuning them.</P>
+                <P>We’ve based our prediction on gathering information from the public domain. You can explore different scenarios by altering various data inputs.</P>
             </div>
             <Button 
                 onClick={onAction}

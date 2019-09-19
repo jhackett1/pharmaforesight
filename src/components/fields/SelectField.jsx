@@ -7,6 +7,7 @@ import dropdown from "./dropdown.svg"
 const Outer = styled.div`
     margin-bottom: 25px;
     position: relative;
+    grid-column: ${props => props.forceNewRow ? "1 / 2" : "inherit"};
 `
 
 const Select = styled.select`
@@ -36,9 +37,10 @@ const SelectField = ({
     onChange,
     required,
     children,
+    forceNewRow,
     ...props
 }) =>
-    <Outer>
+    <Outer forceNewRow={forceNewRow}>
         <Label 
             htmlFor={name}
             required={required}

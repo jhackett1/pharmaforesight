@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { PrimaryButton } from "../Button"
 import TextField from "../fields/TextField"
 import CheckboxField from "../fields/CheckboxField"
-import SliderField from "../fields/SliderField"
+import SelectField from "../fields/SelectField"
 
 const Headline = styled.h2`
   margin-bottom: 25px;
@@ -80,7 +80,7 @@ const DetailsDialog = ({
 
                     <TextField
                         type="number"
-                        label="Number of facilities"
+                        label="Number of sites"
                         min="1"
                         step="1"
                         name="site_number_of_facilities"
@@ -127,58 +127,62 @@ const DetailsDialog = ({
                     />   
 
                     <Subheadline>Investigator experience</Subheadline>
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 1"
                         min="0"
-                        max="10"
                         step="1"
                         name="invest_phase1_total"
                         value={formData.invest_phase1_total || 0}
                         onChange={handleChange}
+                        required
                     />
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 2"
                         min="0"
-                        max="10"
                         step="1"
                         name="invest_phase2_total"
                         value={formData.invest_phase2_total || 0}
                         onChange={handleChange}
+                        required
                     />
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 3"
                         min="0"
-                        max="10"
                         step="1"
                         name="invest_phase3_total"
                         value={formData.invest_phase3_total || 0}
                         onChange={handleChange}
+                        required
                     />
 
-
                     <Subheadline>Sponsor experience</Subheadline>
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 1"
                         min="0"
-                        max="10"
                         step="1"
                         name="sponsor_phase1_total"
                         value={formData.sponsor_phase1_total || 0}
                         onChange={handleChange}
+                        required
                     />
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 2"
                         min="0"
-                        max="10"
                         step="1"
                         name="sponsor_phase2_total"
                         value={formData.sponsor_phase2_total || 0}
                         onChange={handleChange}
+                        required
                     />
-                    <SliderField
+                    <TextField
+                        type="number"
                         label="Phase 3"
                         min="0"
-                        max="10"
                         step="1"
                         name="sponsor_phase3_total"
                         value={formData.sponsor_phase3_total || 0}
@@ -197,13 +201,7 @@ const DetailsDialog = ({
                         label="Multiple arms?"
                         name="td_multiple_arms"
                         checked={formData.td_multiple_arms | false}
-                    />   
-                    <CheckboxField
-                        onChange={handleCheckboxChange}
-                        label="Masking?"
-                        name="td_masking"
-                        checked={formData.td_masking | false}
-                    />   
+                    />  
                     <CheckboxField
                         onChange={handleCheckboxChange}
                         label="Non-inferiority?"
@@ -234,7 +232,20 @@ const DetailsDialog = ({
                         name="td_placebo_comp"
                         checked={formData.td_placebo_comp | false}
                     />   
-
+                    <SelectField
+                        label="Masking?"
+                        name="td_masking"
+                        value={formData.td_masking || ""}
+                        onChange={handleChange}
+                        required
+                        forceNewRow
+                    >
+                        <option value="0">No masking</option>
+                        <option value="1">Single</option>
+                        <option value="2">Double</option>
+                        <option value="3">Triple</option>
+                        <option value="4">Quadruple</option>
+                    </SelectField>
 
                     <Subheadline>Sites in...</Subheadline>
                     <CheckboxField

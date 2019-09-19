@@ -106,7 +106,7 @@ const App = () => {
               <Headline>About the drug</Headline>
               <FormColumns>
                 <TextField
-                  label="Name of drug"
+                  label="Name of drug ingredient"
                   placeholder="eg. Copraxinol"
                   required
                   name="drug_trial"
@@ -114,7 +114,7 @@ const App = () => {
                   value={formData.drug_trial || ""}
                 />
                 <TextField
-                  label="Concept unique identifier"
+                  label="NLM indication identifier (CUI)"
                   placeholder="C..."
                   required
                   name="cui"
@@ -130,7 +130,7 @@ const App = () => {
                   value={formData.indication || ""}
                 />
                 <TextField
-                  label="Target"
+                  label="Targets"
                   placeholder="eg. SLC18A2"
                   required
                   name="target"
@@ -147,7 +147,7 @@ const App = () => {
                 />
                 <Subheadline>Mechanism of action</Subheadline>
                 <TextField
-                  label="Action"
+                  label="Actions"
                   required
                   placeholder="eg. antagonist"
                   name="moa_action"
@@ -155,7 +155,7 @@ const App = () => {
                   value={formData.moa_action || ""}
                 />
                 <TextField
-                  label="Target"
+                  label="Targets"
                   required
                   placeholder="eg. SLC18A2"
                   name="moa_target"
@@ -195,10 +195,8 @@ const App = () => {
                   value={formData.td_phase || ""}
                   onChange={handleChange}
                 >
-                  <option value="Phase 1">I</option>
                   <option value="Phase 2">II</option>
                   <option value="Phase 3">III</option>
-                  <option value="Phase 4">IV</option>
                 </SelectField>
 
                 <TextField

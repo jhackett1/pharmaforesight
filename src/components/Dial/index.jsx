@@ -144,7 +144,7 @@ const Dial = ({
                         <>
                             <Probability>{percentage}%</Probability>
                             <Explanation>Probability of trial success</Explanation>
-                            <Improve onClick={onAction}>Improve your prediction</Improve>
+                            <Improve onClick={onAction}>Refine your prediction</Improve>
                         </>
                     }
                 </TextHolder>
