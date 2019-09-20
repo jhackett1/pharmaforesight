@@ -132,7 +132,7 @@ const App = () => {
                   value={formData.indication || ""}
                 />
                 <TextField
-                  label="Targets"
+                  label="Target(s)"
                   placeholder="eg. SLC18A2"
                   required
                   name="target"
@@ -149,7 +149,7 @@ const App = () => {
                 />
                 <Subheadline>Mechanism of action</Subheadline>
                 <TextField
-                  label="Actions"
+                  label="Action(s)"
                   required
                   placeholder="eg. antagonist"
                   name="moa_action"
@@ -157,7 +157,7 @@ const App = () => {
                   value={formData.moa_action || ""}
                 />
                 <TextField
-                  label="Targets"
+                  label="Target(s)"
                   required
                   placeholder="eg. SLC18A2"
                   name="moa_target"
