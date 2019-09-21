@@ -4,7 +4,7 @@
 
 React app front end for the PharmaForesight API.
 
-[On the web here.](https://trusting-mcnulty-7ef29d.netlify.com/)
+[On the web here.](http://pharma-foresight.surge.sh/)
 
 ## Running it locally
 
@@ -15,6 +15,6 @@ Make sure that the `API_HOST` env variable is set to the location of the API ser
 
 ## Running on the web
 
-Suitable for any static file host, like Netlify or Github pages.
+Suitable for any static file host, like Netlify or Surge. Make sure that the `npm run build` command is triggered.
 
 [More info](https://facebook.github.io/create-react-app/docs/deployment)
