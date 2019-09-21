@@ -15,6 +15,8 @@ Make sure that the `API_HOST` env variable is set to the location of the API ser
 
 ## Running on the web
 
-Suitable for any static file host, like Netlify or Surge. Make sure that the `npm run build` command is triggered.
+Suitable for any static file host, like Netlify or Surge.
+
+Make sure that the `npm run build` command runs first, and the root is the `/build` folder.
 
 [More info](https://facebook.github.io/create-react-app/docs/deployment)
