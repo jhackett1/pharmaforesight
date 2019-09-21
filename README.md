@@ -20,3 +20,13 @@ Suitable for any static file host, like Netlify or Surge.
 Make sure that the `npm run build` command runs first, and the root is the `/build` folder.
 
 [More info](https://facebook.github.io/create-react-app/docs/deployment)
+
+
+## Password protection
+
+There's a dormant `<PasswordGate/>` component that can enact very basic, insecure password protection. To password-protect the app:
+
+1. uncomment `<PasswordGate/>` from `src/index.js`
+2. make sure the `REACT_APP_PASSWORD` environment variable is set.
+
+This will guard against only the most basic access attempts. The password is not encrypted and is stored in plain text on the user's browser. *Do not rely on for actual security.*
