@@ -24,7 +24,7 @@ Make sure that the `npm run build` command runs first, and the root is the `/bui
 
 ## Password protection
 
-There's a dormant `<PasswordGate/>` component that can enact very basic, insecure password protection. To password-protect the app:
+There's a dormant `<PasswordGate/>` component that can enact very basic, insecure password protection using localstorage. To password-protect the app:
 
 1. uncomment `<PasswordGate/>` from `src/index.js`
 2. make sure the `REACT_APP_PASSWORD` environment variable is set.
