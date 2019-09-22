@@ -6,9 +6,9 @@ import PasswordGate from "./components/PasswordGate"
 
 ReactDOM.render(
     <DataContextProvider>
-        {/* <PasswordGate> */}
+        <PasswordGate>
             <App/>
-        {/* </PasswordGate> */}
+        </PasswordGate>
     </DataContextProvider>, 
     document.getElementById("root")
 )

@@ -85,17 +85,16 @@ const App = () => {
     e.preventDefault()
     setCondition("thinking")
     const { probability, detailedData } = await makePrediction(formData)
-    // augment the state with extra variables from api
-    setFormData({
-      ...formData,
-      ...detailedData
-    })
-
-    // Log whole state
-    console.log(formData)
-
-    setScore(probability)
-    setCondition("finished")
+    if(probability){
+      setFormData({
+        ...formData,
+        ...detailedData
+      })
+      setScore(probability)
+      setCondition("finished")
+    } else {
+      setCondition("error")
+    }
   }
 
   return(

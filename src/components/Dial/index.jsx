@@ -139,6 +139,7 @@ const Dial = ({
                 <DialGraphic percentage={percentage} condition={condition}/>
                 <TextHolder>
                     { condition === "initial" && <Message>Answer some questions to get started</Message>}
+                    { condition === "error" && <Message>Error. Please check your inputs and try again</Message>}
                     { condition === "thinking" && <PulsingMessage>Thinking...</PulsingMessage>}
                     {( condition === "finished" && percentage) && 
                         <>
