@@ -68,10 +68,11 @@ const App = () => {
   }
 
   const [formData, setFormData] = useState({
-    start_date: new Date(),
+    ...urlQuery,
     trial_completed: 0,
     end_date: "",
-    ...urlQuery
+    start_date: urlQuery.start_date ? new Date(urlQuery.start_date) : new Date(),
+    end_date: urlQuery.end_date ? new Date(urlQuery.end_date) : new Date(),
   })
 
   const handleChange = e => {
@@ -168,6 +169,9 @@ const App = () => {
 
             <Panel>
               <Headline>About the trial</Headline>
+
+              {/* {formData.start_date} */}
+
               <FormColumns>
                 <DateField
                   label="Start date"
