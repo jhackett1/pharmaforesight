@@ -8,10 +8,12 @@ React app front end for the PharmaForesight API.
 
 ## Running it locally
 
-Make sure that the `API_HOST` env variable is set to the location of the API server.
+Make sure that the `REACT_APP_API_HOST` env variable is set to the location of the API server.
 
 1. Clone repo and `npm i`
-2. `npm run dev`
+2. Create a `.env` file with the command `cp .env.example .env`
+3. Set the env variables to their actual values
+4. `npm run dev`
 
 ## Running on the web
 
