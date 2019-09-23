@@ -14,7 +14,7 @@ export const makePrediction = async (formData) => {
     }
 }
 
-
-export const refinePrediction = async () => {
-
+export const refinePrediction = async (detailedData) => {
+    const probability = await getProbability(detailedData)
+    return probability.pos
 }

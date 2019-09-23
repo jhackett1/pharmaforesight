@@ -44,7 +44,7 @@ const CallToAction = ({
             </div>
             <Button 
                 onClick={onAction}
-                disabled={condition !== "finished"}
+                disabled={(condition !== "finished" && condition !== "error")}
             >
                 Refine
             </Button>

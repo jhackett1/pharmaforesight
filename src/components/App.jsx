@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import { DataContext } from "../contexts/DataContext"
-import { makePrediction } from "../lib/actions"
+import { makePrediction, refinePrediction } from "../lib/actions"
 import querystring from "querystring"
 
 import Layout from "./Layout"
@@ -67,30 +67,39 @@ const App = () => {
     // ignore malformed uris
   }
 
-  const [formData, setFormData] = useState({
+  const [basicData, setBasicData] = useState({
     ...urlQuery,
     trial_completed: 0,
-    end_date: "",
     start_date: urlQuery.start_date ? new Date(urlQuery.start_date) : new Date(),
-    end_date: urlQuery.end_date ? new Date(urlQuery.end_date) : new Date(),
+    end_date: urlQuery.end_date ? new Date(urlQuery.end_date) : ""
   })
+  const [additionalData, setAdditionalData] = useState({})
 
   const handleChange = e => {
-    setFormData({
-      ...formData,
+    setBasicData({
+      ...basicData,
       [e.target.name]: e.target.value
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handlePredict = async (e) => {
     e.preventDefault()
     setCondition("thinking")
-    const { probability, detailedData } = await makePrediction(formData)
+    const { probability, detailedData } = await makePrediction(basicData)
     if(probability){
-      setFormData({
-        ...formData,
-        ...detailedData
-      })
+      setAdditionalData(detailedData)
+      setScore(probability)
+      setCondition("finished")
+    } else {
+      setCondition("error")
+    }
+  }
+
+  const handleRefine = async (e) => {
+    e.preventDefault()
+    setCondition("thinking")
+    const probability = await refinePrediction(additionalData)
+    if(probability){
       setScore(probability)
       setCondition("finished")
     } else {
@@ -102,7 +111,7 @@ const App = () => {
     <Layout>
       <Columns>
         <aside>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handlePredict}>
 
             <FirstPanel>
               <Headline>About the drug</Headline>
@@ -113,7 +122,7 @@ const App = () => {
                   required
                   name="drug_trial"
                   onChange={handleChange}
-                  value={formData.drug_trial || ""}
+                  value={basicData.drug_trial || ""}
                 />
                 <TextField
                   label="NLM indication identifier (CUI)"
@@ -121,7 +130,7 @@ const App = () => {
                   required
                   name="cui"
                   onChange={handleChange}
-                  value={formData.cui || ""}
+                  value={basicData.cui || ""}
                 />
                 <TextField
                   label="Indication"
@@ -129,7 +138,7 @@ const App = () => {
                   placeholder="eg. tardive dyskinesia"
                   name="indication"
                   onChange={handleChange}
-                  value={formData.indication || ""}
+                  value={basicData.indication || ""}
                 />
                 <TextField
                   label="Target(s)"
@@ -137,7 +146,7 @@ const App = () => {
                   required
                   name="target"
                   onChange={handleChange}
-                  value={formData.target || ""}
+                  value={basicData.target || ""}
                 />
                 <TextField
                   label="NLM therapeutic area (MeSH)"
@@ -145,7 +154,7 @@ const App = () => {
                   placeholder="eg. C23"
                   name="treecode"
                   onChange={handleChange}
-                  value={formData.treecode || ""}
+                  value={basicData.treecode || ""}
                 />
                 <Subheadline>Mechanism of action</Subheadline>
                 <TextField
@@ -154,7 +163,7 @@ const App = () => {
                   placeholder="eg. antagonist"
                   name="moa_action"
                   onChange={handleChange}
-                  value={formData.moa_action || ""}
+                  value={basicData.moa_action || ""}
                 />
                 <TextField
                   label="Target(s)"
@@ -162,7 +171,7 @@ const App = () => {
                   placeholder="eg. SLC18A2"
                   name="moa_target"
                   onChange={handleChange}
-                  value={formData.moa_target || ""}
+                  value={basicData.moa_target || ""}
                 />
               </FormColumns>
             </FirstPanel>
@@ -177,27 +186,27 @@ const App = () => {
                   label="Start date"
                   required
                   name="start_date"
-                  onChange={value => setFormData({
-                    ...formData,
+                  onChange={value => setBasicData({
+                    ...basicData,
                     start_date: value
                   })}
-                  value={formData.start_date}
+                  value={basicData.start_date}
                 />
                 <DateField
                   label="End date"
                   name="end_date"
-                  onChange={value => setFormData({
-                    ...formData,
+                  onChange={value => setBasicData({
+                    ...basicData,
                     end_date: value
                   })}
-                  value={formData.end_date || ""}
+                  value={basicData.end_date || ""}
                 />
                 
                 <SelectField
                   label="Phase"
                   required
                   name="phase"
-                  value={formData.phase || ""}
+                  value={basicData.phase || ""}
                   onChange={handleChange}
                 >
                   <option value="Phase 2">II</option>
@@ -210,7 +219,7 @@ const App = () => {
                   placeholder="eg. Pfizer"
                   name="sponsor"
                   onChange={handleChange}
-                  value={formData.sponsor || ""}
+                  value={basicData.sponsor || ""}
                 />
                 <TextField
                   label="NCT identifier"
@@ -218,20 +227,20 @@ const App = () => {
                   required
                   name="nct_id"
                   onChange={handleChange}
-                  value={formData.nct_id || ""}
+                  value={basicData.nct_id || ""}
                 />
 
                 <CheckboxField
                   label="Is the trial complete?"
                   bottomMargin
-                  onChange={e => e.target.checked ? setFormData({
-                    ...formData,
+                  onChange={e => e.target.checked ? setBasicData({
+                    ...basicData,
                     trial_completed: true
-                  }) : setFormData({
-                    ...formData,
+                  }) : setBasicData({
+                    ...basicData,
                     trial_completed: false
                   })}
-                  checked={formData.trial_completed || false}
+                  checked={basicData.trial_completed || false}
                   name="trial_completed"
                 />
 
@@ -253,11 +262,11 @@ const App = () => {
       </Columns>
 
       <DetailsDialog 
-        formData={formData} 
-        setFormData={setFormData}
+        formData={additionalData} 
+        setFormData={setAdditionalData}
         open={dialogOpen} 
         handleDismiss={()=> setDialogOpen(false)}
-        handleSubmit={handleSubmit}
+        handleSubmit={handleRefine}
       />
 
     </Layout>

@@ -87,7 +87,6 @@ const DetailsDialog = ({
 
             }}>
                 <FormColumns>
-
                     <TextField
                         type="number"
                         label="Number of sites"
@@ -309,7 +308,7 @@ const DetailsDialog = ({
 
                 </FormColumns>
                 <DialogFooter>
-                    <PrimaryButton>Recalculate</PrimaryButton>
+                    <PrimaryButton>Refine</PrimaryButton>
                 </DialogFooter>
 
             </form>
