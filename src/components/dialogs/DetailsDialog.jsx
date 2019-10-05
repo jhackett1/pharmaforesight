@@ -61,10 +61,19 @@ const DetailsDialog = ({
     handleSubmit
 }) => {
 
+    console.log(formData)
+
     const handleChange = e => {
         setFormData({
           ...formData,
           [e.target.name]: e.target.value
+        })
+    }
+
+    const handleNumberChange = e => {
+        setFormData({
+          ...formData,
+          [e.target.name]: parseFloat(e.target.value)
         })
     }
 
@@ -146,7 +155,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase1_total"
                         value={formData.invest_phase1_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                         required
                     />
                     <TextField
@@ -156,7 +165,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase2_total"
                         value={formData.invest_phase2_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                         required
                     />
                     <TextField
@@ -166,7 +175,7 @@ const DetailsDialog = ({
                         step="1"
                         name="invest_phase3_total"
                         value={formData.invest_phase3_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                         required
                     />
 
@@ -181,7 +190,7 @@ const DetailsDialog = ({
                         step="1"
                         name="sponsor_phase1_total"
                         value={formData.sponsor_phase1_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                         required
                     />
                     <TextField
@@ -191,7 +200,7 @@ const DetailsDialog = ({
                         step="1"
                         name="sponsor_phase2_total"
                         value={formData.sponsor_phase2_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                         required
                     />
                     <TextField
@@ -201,7 +210,7 @@ const DetailsDialog = ({
                         step="1"
                         name="sponsor_phase3_total"
                         value={formData.sponsor_phase3_total || 0}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                     />
 
                     <Subheadline>Trial design</Subheadline>
