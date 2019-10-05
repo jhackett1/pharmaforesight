@@ -2,6 +2,7 @@ import { getDetails, getProbability } from "./api"
 
 // Turn any trues and falses into 0 and 1 strings
 const convertBools = (data) => {
+    // eslint-disable-next-line
     Object.keys(data).map((key, i) => {
         if(data[key] === true){ data[key] = "1" }
         if(data[key] === false){ data[key] = "0" }

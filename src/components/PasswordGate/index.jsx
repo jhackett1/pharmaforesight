@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import styled from "styled-components"
-import theme from "../_theme"
+//
 
 // VERY INSECURE secure basic password check
 // Stores password in PLAIN TEXT LOCAL STORAGE
