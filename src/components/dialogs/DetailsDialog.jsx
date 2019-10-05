@@ -103,7 +103,7 @@ const DetailsDialog = ({
                         step="1"
                         name="site_number_of_facilities"
                         value={formData.site_number_of_facilities || ""}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                     />
                     <TextField
                         type="number"
@@ -112,7 +112,7 @@ const DetailsDialog = ({
                         step="1"
                         name="td_accrual"
                         value={formData.td_accrual || ""}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                     />
                     <TextField
                         type="number"
@@ -120,7 +120,7 @@ const DetailsDialog = ({
                         label="Study duration (in days)"
                         name="td_duration"
                         value={formData.td_duration || ""}
-                        onChange={handleChange}
+                        onChange={handleNumberChange}
                     />
                     <CheckboxField
                         onChange={handleCheckboxChange}
