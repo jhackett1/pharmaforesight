@@ -4,8 +4,8 @@ import { getDetails, getProbability } from "./api"
 const convertBools = (data) => {
     // eslint-disable-next-line
     Object.keys(data).map((key, i) => {
-        if(data[key] === true){ data[key] = "1" }
-        if(data[key] === false){ data[key] = "0" }
+        if(data[key] === true){ data[key] = 1 }
+        if(data[key] === false){ data[key] = 0 }
     });
     return data
 }
